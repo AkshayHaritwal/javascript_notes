@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array methods - foreach , map , filter , every , some , reduce </title>
+</head>
+<body>
+    
+
+
+
+
+
+
+
+
+    <script>
+// forEach method in array ----------------------------------->
+
+        let num = [1,2,3,4,5,6]; 
+
+        let print = function(el){          // yaha ek variable banaya hai print isme function ko store karwa diya hai , argument diya hai el argument name me kuch bhi de sakte hai 
+            console.log(el);
+        };
+
+        num.forEach(print); // ab hum for each ke andar print function ko call karenge to ek ek element print hoga 
+       
+
+
+        // shorthand ------> 
+ // ----> foreach type karke [] wale foreach pr click karenge to ye format aa jaayega isme array ki jagah apne variable jisme humne array value store karwayi hai ka naam likhenge .  
+
+        // array.forEach(element => {    
+                             
+        // });
+
+        num.forEach(element => {
+            console.log(element);
+        });
+
+// foreach method on array object ----------------->        
+
+        let info = [{name: "Akshay" , age :20}  ,  {name: "rohit" , age :22} , {name: "surya" , age :28}      ];
+
+        info.forEach(element => {
+            console.log(element.name);  // yaha kewal element karenge too one by one object print honge .property likhnege to particular wo print hogi .
+            
+        });
+
+
+
+
+
+        // map method in array ---------------------------------->
+
+        let number = [1,2,3,4,5,6,7,8,9]; //array create kiya hai
+// yaha ek variable banaya hai sqt isme isme number.map kar diya hai and ek arrow function banaya hai isme argument diya hai el isse array ki valur ek ek karke return hogi 
+        let sqt = number.map((el)=>{
+            return el*el;
+        }
+        )
+
+    
+
+        console.log(sqt);// yaha jab hum print karwayenge sqt ko to ye jo value hai usko ek array me return karega 
+
+
+
+
+        // filter method in array ---------------------------------->
+
+        let numbers = [1,2,3,4,5,6,7,8,9];
+
+        let ans = numbers.filter((element)=>{
+            return element %2 == 0;           // yaha humne filter method lagaya hai filter method kewal wo value print karwayega jo iss condtion me true return kargi yaani even number 
+
+        }
+        );
+        console.log(ans); // so yaha even number ka array return hoga , agar hum condition me != kar de to odd number ka array return hoga
+
+
+
+
+        // every method in array ------------------------------------->
+
+        let nums = [2,4,6,8,10];
+
+        let result = nums.every((el)=>{  
+            return el % 2 == 0;               // so yaha every method check karega ki sabhi element agar condition me true return karte hai to ye true return karega and agar ek bhi false return karta hai to ye false return karega 
+
+        })
+        console.log(result); // yaha humne even number wali condition lagayi thii sabhi even number hai isliye true return hoga 
+
+
+
+
+        // some method in array ----------------------------------------->
+
+
+        let numberss = [1,2,3,4,5,6,7];
+
+        let results = numberss.some((el)=>{  
+             return el % 2 == 0;               // so yaha some method check karega ki agar given elements me se koi ek bhi true return karta hai to ye true return karega and agar sabhi false return karte hai to ye false return karega 
+
+        })
+        console.log(result); // yaha ye true return karega because 2,4,6 condition ko satisfy kar rahe hai , agar sabhi odd number hote too false return karta 
+
+
+        // reduce method in array ---------------------------------------->
+
+        let numb = [1,2,3,4];
+
+        let finalvalue = numb.reduce((acumlator,el) => acumlator + el);  // .reduce function 2 argument leta hai ek acumulator jiski initial value 0 hoti hai and 2nd el yaani element 
+        console.log(finalvalue); // yaha sabse pahle acumlator ki value 0 hai and el ki value hogi 1 so ye return karega 0+1 = 1
+        // ab acumlator ki value hogayi 1 ,element ki 2 so 2+1 = 3 return karega like this continue and last me acumulator ki value hogi 6 and element ki 4 so ye finalvalue return karega 6+4 = 10 
+
+
+        // printing maximum value among number withe the help of reduce ----------------------------------->
+
+        let numbs = [1,2,3,4,5,6,7,8];
+
+        let answer = numbs.reduce((acum , el)=>{  // yaha acum ki value 0 hai and el me one by one array ki value aayegi 
+            if (acum<el) {
+                return el;       // so yaha sabse pahle check hoga ki kya acum ki value < hai el se agar haa to el return hoga ab acum   ki value ho chuki hai 1 next element ki value hai 2 so yaha bhi accum less than hai so el ki value return hogi   
+                
+            } else {
+                return acum; // jese hii acum ki value > ho jaayegi el se to return ho jaayega acum ki value 
+                
+            }
+
+        }) ;
+
+        console.log(answer) 
+
+        
+    </script>
+</body>
+</html>

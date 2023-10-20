@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sending headers with api request</title>
+</head>
+<body>
+    
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script> 
+
+
+
+    <script>
+        let url = "https://icanhazdadjoke.com/ ";
+
+        async function getjokes() {
+            
+            try {
+                let header = {headers:{Accept:"application/json"}}; // yaha sabse pahle likhenge headers then header property then uski value , 
+                let res = await axios.get(url , header); // yaha request send karte waqt is baar header ki form me additional data bhi send kiya hai 
+                console.log(res.data);
+            } catch (error) {
+                console.log("error")
+                
+            }
+        }
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

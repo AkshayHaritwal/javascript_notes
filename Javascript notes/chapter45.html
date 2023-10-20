@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>using Axios to send get request</title>
+</head>
+<body>
+
+    <!-- Axios ek library hoti hai jiski help se hum http request ko create karte hai  -, Axios ko use karke bhi hum same http request send kar sakte hai jese hum fetch and async ko use karke send kar sakte hai -->
+
+    <!-- Axios ke liye search karna hai axios github then 1st website pe jaana hai yaha se axios ka cdn link copy karke closing body tag se just pahle paste kar dena hai   -->
+
+
+
+
+
+
+
+
+    <h1>Get random cat facts</h1>
+    <button>Show new fact</button>
+    <p></p>
+
+    <button id="dog">show image</button>
+    <img src="" alt="">
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script> 
+    <script>
+    let url = "https://catfact.ninja/fact";
+
+    async function getfact() {
+        try {
+            let res = await axios.get(url);// axios use karne ka benifit ye hai ki ab hume yaha response ko readable form me convert karne ki jarurat nahi hai hum direct data access kar sakte hai , iske liye hum response ko expand karenge and jo bhi value access karni hai wo . lagakar likh sakte  hai 
+            console.log(res);
+            console.log(res.data); // yaha data print ho jaayega
+            console.log(res.data.fact); // yaha data me jo fact key hai uski value print ho jaayegi
+        } catch (error) {
+            console.log("error occured" , error);
+            
+        }
+        
+    }
+    getfact();
+
+
+    // adding javascript with html ---------->
+
+    let btn = document.querySelector("button");
+
+    btn.addEventListener("click" , async ()=>{ // yaha humne iss arrow function ko bhi async bana diya hai kyuki hum isme niche wale async function ko call karenge 
+        let fact = await getfacts(); //and yaha await use kiya hai taaki ye call complete ho tabhi aage ka code execute ho 
+        console.log(fact); // yaha jese hii button pe click hoga to ye getfact wala function call ho jaayega and random fact generate hoga
+
+        let para = document.querySelector("p");
+        para.innerText= fact; // yaha para ka innertext fact ki value se replace ho jaayega
+
+    });
+
+    
+    let caturl = "https://catfact.ninja/fact";
+
+    async function getfacts() {
+        try {
+            let res = await axios.get(url); 
+            return res.data.fact; 
+        } catch (error) {
+            console.log("error occured" , error);
+            return "no fact found";
+            
+        }
+        
+    }
+    getfacts();
+
+
+
+
+    // dog api ----------->
+
+    let url2 = "https:dog.ceo/api/breeds/image/random"
+
+    let btn2 = document.querySelector("#dog");
+
+    btn2.addEventListener("click" , async ()=>{
+        let link = await getimage();
+        let img = document.querySelector("img");
+        img.setAttribute("src" , link); // yaha image ka src set ho jaayega jo getimage me link return hoga 
+
+    });
+
+    async function getimage() {
+        try {
+            let res = await axios.get(url2);
+            return res.data.message; // iski help se image ka link print hoga 
+        } catch (error) {
+            console.log("error " ,error);
+            return "no image";
+            
+        }
+    }
+
+
+
+
+
+
+
+
+    </script>
+
+    
+</body>
+</html>

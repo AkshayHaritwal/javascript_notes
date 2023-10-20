@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity using query string</title>
+</head>
+<body>
+
+    <input type="text" name="country" id="country" placeholder="enter country name">
+
+    <button>search</button>
+
+    <ul></ul>
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script> 
+
+    
+
+
+    <script>
+        let btn = document.querySelector("button");
+
+        btn.addEventListener("click" , async ()=>{
+            let country = document.querySelector("input").value;// .value ki help se user input box me jo value likhega usko  access kar lenge 
+            console.log(country);
+          let colleges = await getcolleges(country) // yaha getcolleges function ko call kar liya hai iske argument me de diya hai country isme user jo enter karega wo value aajayegi
+          showarr(colleges); // iske baad yaha showarr function ko call kar liya hai 
+
+        })
+
+        function showarr(colleges) {
+            let list = document.querySelector("ul");
+            list.innerText=""; // iski help se list har baar dubara empty ho jaayegi 
+
+            for (element  of colleges) {
+                console.log(element.name); // loop ki help se ek ek college ka naam print hoga
+
+                let li = document.createElement("li");
+                li.innerText= element.name;
+                list.appendChild(li); 
+                // yaha li create hota jaayega , usme college name add ho jaayega and phir wo li ul me add hota jaayega 
+            }
+            
+        }
+
+
+
+
+        let url = "http://universities.hipolabs.com/search?name=";
+
+
+        async function getcolleges(country) {
+            try {
+                let res = await axios.get(url+country); // yaha humne url ke sath me ek querry string send ki hai country ki form me
+                return res.data;
+            } catch (error) {
+                console.log("error occured" , error);
+            }
+        }
+        getcolleges();
+
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

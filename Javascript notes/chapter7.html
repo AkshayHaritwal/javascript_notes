@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>alert , confirm and prompt</title>
+</head>
+<body>
+    <h1>This is an tutorial for alert , confirm and prompt</h1>
+
+
+
+
+    <script>
+
+
+        alert("This is an alert for you");
+        // alert se alert message aata hai webpage ke upper uspe ok karne ke baad hee webpage se interact kar skte hai
+
+
+        let name = prompt("What is your name ","Guest");
+        // prompt ka use user se input lene ke liye kiya jata hai, coma ke baad jo likh hai wo default print hoga usko hata ke user aapna name de sakta hai 
+        document.write(name);
+        console.log(name);
+        // document.write karenge to webpage pe print hoga and console.log karenge to console pe print hog jo bhi user dega
+
+
+
+        
+        let Instagram = confirm("Do you Really want to delete your Instagram post");
+        // confirm ka use confirm karwane ke liye kiya jaata hai , ek popup message ayega to confirm the action 
+        
+        console.log(Instagram);
+
+        if(Instagram){
+            console.log("Your Instagram post has been deleted sucessfully");
+            // agar user ok karega too ye print hoga and agar cancel karega to else wala print hoga
+        }
+        else{
+            console.log("Your post has been not deleted ")
+        }
+
+    </script>
+</body>
+</html>

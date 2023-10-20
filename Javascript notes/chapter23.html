@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard events</title>
+</head>
+<body>
+
+    <button>Click here</button>
+
+    <input type="text" name="name" id="name" placeholder="type something here">
+
+    <input type="text" name="game" id="game" placeholder="enter your move">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        let btn = document.querySelector('button');
+
+        btn.addEventListener("click" , function (event) {  // jab bhi hum addeventlistner me callback pass karte hai to usme ye event as default argument jata hai 
+            console.log(event); // yaha humne event ko print karwa diya hai , yaha humne click ko as event argument diya hai so yaha pointer event ka object print hoga 
+            
+        });
+
+
+        // KeyboardEvent -------------->
+
+        let inp = document.querySelector('input');
+
+        inp.addEventListener("keydown" , function () {  // yaha humne addeventlistener ke event argument me humne value di hai keydown so jese hii key press karenge to ye callback me humne jo program likha hai wo execute ho jaayega
+            console.log("key was pressed");            
+        });
+
+        inp.addEventListener("keyup",function () {
+            console.log("key was released")  // yaha jese hii key ko chorenge to ye statement print ho jayegi
+            
+        });
+
+
+
+        inp.addEventListener("keypress",function (event) {
+            console.log(event); // yaha humne event argument me keypress diya hai so keyboard event ka object print hoga , isme 2 important parameter hai 1. key:"a" --> ye batati hai ki screen pe event triger hone ki wajah se kya print hua hai isme hum jo bhi type karenge wo print hoga  2. code :"keyB" --> isme humne jo key press ki hai uska code print hoga 
+
+            console.log(event.key); //yaha jo key press ki hai wo print ho jaayegi 
+            console.log(event.code);// yaha jo key press ki hai uska code print ho jaayega
+            console.log("key was pressed");
+            
+        });
+
+
+
+        
+// game ----------------->
+        let game = document.querySelector("#game");
+
+        game.addEventListener("keypress",function (event) {
+            console.log(event.code);         // yaha hum jo bhi keypress karenge to uska key code print ho jaayega 
+            if(event.code == "KeyU"){
+                console.log("character moves upward"); // agar key code KeyU hoga to ye statement print hoga like this others
+            }
+            else if (event.code == "KeyD"){
+                console.log("character moves downward");
+            }
+            else if (event.code == "KeyL"){
+                console.log("character moves letward");
+            }
+            else if (event.code == "KeyR"){
+                console.log("character moves rightward");
+            }
+        });
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

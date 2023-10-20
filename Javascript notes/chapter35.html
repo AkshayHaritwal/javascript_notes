@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Async functions - async & await keyword , error handle</title>
+  </head>
+  <body>
+    <h2>Team india in front</h2>
+    <h3>Akshay</h3>
+
+    <script>
+      // async function ki help se hum asyncronous code ko thoda or easy way me likh sakte hai
+
+      // async keyword  --------> ki help se hum async function ko create karte hai , agar hum normal function ke aage async likh de to wo async function baan jata hai , sabhi async function by default ek promise ko return karte hai , so hum yaha promise wale method apply kar sakte hai
+
+      async function greet() {
+        return "hello";
+      }
+      // yaha hume ek promise return hoga kyuki humne async function banaya hai , promise ki state hogi fullfield agar code normally execute ho jaata hai and jo value print karwana cha rahe to wo print ho jaayegi , nahi to state hogi rejected and error aayega
+      let request = greet();
+      request
+        .then((result) => {
+          console.log("promise was resolved");
+          console.log("result was", result);
+        })
+        .catch((error) => {
+          console.log("promise was rejected", error);
+        }); // yaha hum then and cath method ko use kar sakte hai
+
+      // agar hum arrow function ke aage async likh de to wo bhi async function baan jaayega
+
+
+
+
+
+      // Await keyword - ko humne jis bhi function call ke saamne likh diya jab tak wo function call execute nahi ho jaati tab tak baaki ki function call ko wait karwayega ,await keyword ko hum kewal async function me hii use kar sakte hai ----->
+
+      function getnum() {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            let num = Math.floor(Math.random() * 10) + 1;
+            console.log(num);
+            resolve();
+          }, 1000);
+        });
+      }
+
+      async function demo() {
+        await getnum(); // so yaha kyuki humne await keyword ko use kiya hai isliye sabse pahle ye call complete hogi then 1 sec baad aage ki call execute hogi
+        await getnum();
+        getnum();
+      }
+      demo();
+
+
+
+
+      // color change with the help of async function ------------>
+
+      let heading = document.querySelector("h2");
+      function changecolor(itemcolor, delay) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            heading.style.color = itemcolor;
+            resolve("color changed");
+          }, delay);
+        });
+      }
+
+      async function info() {
+        await changecolor("red", 1000); // so yaha humne await keyword ko use kiya hai isliye ye sabse pahle first call execute hogi 1sec wait karne ke baad 2nd call pe jaayega like this continue
+        await changecolor("blue", 1000);
+        await changecolor("yellow", 1000);
+        changecolor("green", 1000);
+      }
+      info();
+
+
+
+
+      // error handle in await --------->
+
+      let heading2 = document.querySelector("h3");
+      function changecolors(itemcolor, delay) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            let nums = Math.floor(Math.random()*10)+1;
+            if (nums > 4) {
+              reject("promise was rejected");
+            }
+            heading2.style.color = itemcolor;
+            resolve("color changed");
+          }, delay);
+        });
+      }
+      // so upper humne if conditon di hai jesi hii if codition me >4 number aata hai uski promise reject ho jaayegi and aage ka code  run hii nahi hoga so agar hume lagta hai ki kisi code me error aa sakta hai usko hum try block me daal denge jaha bhi error aayega waha catch wali statement print ho jaayegi and aage ka code normally run hoga
+      async function demo2() {
+        try {
+          await changecolors("blue", 1000); // so yaha agar changecolor function me koi error aayega to catch wali statement print ho jaayegi and aage ka code normally run hoga
+          await changecolors("yellow", 1000);
+          changecolors("green", 1000);
+        } catch (error) {
+          console.log("error caught");
+        }
+
+        console.log("the end");
+      }
+      demo2();
+    </script>
+  </body>
+</html>

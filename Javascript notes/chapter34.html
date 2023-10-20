@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises</title>
+</head>
+<body>
+    <h2>Akshay</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+
+// so yaha humne ek function banaya hai isme humne 3 argument diye hai 
+
+        function savetoDb(data, sucess , failure) {
+          let internetspeed = Math.floor(Math.random()*10)+1; // yaha math.random ki help se 1-10 ke bich ek random number generate karwayenge
+          if (internetspeed >5) { // yaha if condition di hai ki agar internet speed(random number jo generate hua hai) 5 se high ho to sucess function ko call karna hai and agar less hoti hai to else wale failure function ko call karna hai 
+            sucess(); 
+            
+          } else {
+            failure();
+            
+          }
+          
+        }
+
+        // savetoDb("Indian team" , ()=>{console.log("your data was saved" )} , ()=>{console.log("weak connection data not saved")});
+// yaha humne saveDb function ko call kiya hai isme 1st argument ki value me de diya hai "team india" , 2nd and 3rd argument ki value me humne arrow function de diya hai
+
+// ab hum yaha ye chate hai ki agar first vala data save ho jaaye to hum ek or data save karwaye iske liye hum sucess wale arrow function me wapas same code repeat kar denge  // savetoDb("Indian team" , ()=>{console.log("your data was saved" )} , ()=>{console.log("weak connection data not saved")}); ye wala isme data ki value change kar denge , ayah kyuki humne nested form me likha hai so agar first wala data save hoga tabhi 2nd wala hoga nahi to failure wala function print ho jaayega
+      savetoDb(
+        "Indian team",
+        () => {
+          console.log("your data was saved");
+          savetoDb("Rohit sharma" , ()=>{
+            console.log("player name saved");
+          }, ()=>{
+            console.log("player name not saved");
+          })
+        },
+        () => {
+          console.log("weak connection data not saved");
+        }
+      );
+
+// promise --------------------------------->
+
+// Promise is an object , promise ka use call back hell se bachne ke liye kiya jata , promise me 2 chize hoti hai resolve and reject , resolve means sucess and reject means failure
+
+// yaha humne ek function banaya hai isme 1 argument diya hai , then humne new promise return karwa diya hai , iske liye promise likjenge then [] pe click karenge to iska format aa jaayega, isme 2 parameter aate hai  resolve and reject, yaha promise ya to resolve return karega ya reject , hum inhe print bhi karwa sakte hai so yaha humne resolve ko if conditio me diya hai agar internet speed >5 huyi to resolve return hoga and agar internet speed <5 huyi to reject return hoga
+        function savetodb(data) {
+          return new Promise((resolve , reject)=>{
+            let internetspeed = Math.floor(Math.random()*10)+1;
+
+            if (internetspeed >5) {
+              resolve("data was saved");
+            } else {
+              reject("data was not saved");
+              
+            }
+
+          })
+          
+        }
+        console.log(savetodb("web development")); // yaha humne savetodb function ko console.log me call kar liye hai kyuki andar humne value return karwayi hai then isme argument ki value de di hai 
+
+
+// then and catch method ------------------------->
+
+// promise me 2 method hote hai then and catch , agar hum ye chate hai ki promise fullfill ho jaaye tab koi kaam ho to hum then method ko use karenge and agar reject ho jaaye to catch method ka use karenge  
+
+
+function savetodb2(data) {
+          return new Promise((resolve , reject)=>{
+            let internetspeed = Math.floor(Math.random()*10)+1;
+
+            if (internetspeed >5) {
+              resolve("data was saved");
+            } else {
+              reject("data was not saved");
+              
+            }
+
+          })
+          
+        }
+
+     let request =   savetodb2("web designing"); // yaha humne savetodb2 ko call kar liya hai ab yaha jo promise return hoke aayega usko humne request variable me store karwa liya hai 
+     console.log("request");
+
+// ab agar wo request fullfill show hoti hai to then method me jo code likha hai wo execute ho jaayega and agar reject ho jaati hai to catch method wala code execute hoga     
+ // then method and catch method me ek call back(arrowfunction) denge  
+     request.then(()=>{       
+      console.log("promise was resolved");
+     })
+
+    .catch(()=>{
+      console.log("promise was rejected");
+    })
+
+
+
+// promise chaining -------------------------------->
+
+
+function savetodb3(data) {
+          return new Promise((resolve , reject)=>{
+            let internetspeed = Math.floor(Math.random()*10)+1;
+
+            if (internetspeed >5) {
+              resolve("data was saved");
+            } else {
+              reject("data was not saved");
+              
+            }
+
+          })
+          
+        }
+
+     let request2 =   savetodb3("web designing"); 
+     request2.then((result)=>{       
+      console.log("data 1 was saved sucessfully"); // agar 1st data save ho jaata hai to ye print ho jaayega  nahi to catch 
+
+//yaha humne then me argument bhi diya hai reuslt isse pata lag jaayega ki promise fullfil ho gai hai so resolve wala statement print ho jaayega
+
+      return savetodb3 ("hello world"); // then yaha humne savetodb3 me ek or data save karwaye hai and use return karwa diya hai 
+     })
+     .then((result)=>{
+      console.log("data 2 saved"); // agar 2nd wala data save ho jaata hai to then method print ho jaayega and nahi hota hai to catch print hoga  
+
+      return savetodb3("computer applications");
+
+
+     })
+     .then((result)=>{
+      console.log("data3 was saved");
+     })
+
+    .catch((error)=>{
+//yaha catch me argument diya hai error so agar promise reject ho jaati hai to reject wala statement print hoga      
+      console.log("promise was rejected");
+    });
+
+
+
+
+    // change color with the help of promise chainning ------------------->
+
+  let heading = document.querySelector("h2");
+    function changecolor(itemcolor , delay) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          heading.style.color = itemcolor;
+          resolve("color changed");
+        }, delay);
+      })
+      
+    }
+
+    changecolor("red",1000)
+    .then(()=>{
+      console.log("color changed to red");
+      return changecolor("orange",1000);
+    })
+
+    .then(()=>{
+      console.log("color changed to orange");
+      return changecolor("blue",1000);
+    })
+
+    .then(()=>{
+      console.log("color changed to blue");
+      
+    })
+
+
+    </script>
+</body>
+</html>

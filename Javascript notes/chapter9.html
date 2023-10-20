@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>functions - function , loop in function , if else in function , argument in function , return</title>
+  </head>
+  <body>
+    <script>
+    
+    // function - function is a block of code , function ko hum multiple time call kar sakte hai ,function ko banane ke liye function likhenge the function name then (isme parameter ya argument aate hai) then {} me hume jo bhi program execute karwana hai wo likhte hai the end me function ko call karenge like this hello(); ---------------------------->
+
+    function hello() {
+      console.log("My name is Akshay choudhary");
+      console.log("My age is 20");
+                                           // so yaha hum ye 2 programe exicute karwana chate hai 
+    }
+    hello(); // iss tarah se hum function ko call kar sakte hai 
+
+
+
+    // for loop in funtion ------------------------------------------------------->
+    function count() {
+
+      for(i=0; i<=10; i++){
+        console.log(i); // iss tarah se hum function me for loop ko use kar sakte hai 
+      }
+      
+    }
+    count();
+
+
+    //if else in function ---------------------------------------------------->
+
+    function categeory() {
+      let age = 20;
+
+      if (age>=18) {
+        console.log("You are adult");
+        
+      } 
+      else {
+        console.log("you are minor");
+        
+      }
+      
+    }
+    categeory();
+
+
+    // argument in function --------------------->
+    // yaha humne info function me 2 argument diye hai name and age 
+    function info(name, age) {
+      console.log("My name is"+name, "And age is" + age); // yaha name and age ko print karwa diya hai 
+      
+    }
+    info("Akshay", 20);// ab function ko call karte time hume name and age argument ki value pass karni hogi , yaha first value name ki hai and 2nd value age ki hai 
+
+
+
+      //functionwith argument /parameter without return type - isme argument diya hai ki a ki value 50 and b ki value 50 hai
+
+      function namste(a = 50, b = 50) {
+        console.log(a + b);
+        console.log(a + b);
+        // agar console mei karwana hai to iss tarah se likhte hai
+      }
+      namste();
+
+
+
+
+
+      //function without argument /parameter with return type- yaha argument nahi diya hai value return karwayi hai
+      function rohit() {
+        a = 10;
+        b = 20;
+        c = a + b;
+        return c;
+      }
+      console.log(rohit());
+
+      
+
+      // function with argument with return type
+
+      function add3(a, b) {
+        return a + b;
+      }
+      console.log(add3(50, 50));
+
+
+
+
+
+      //   function without argument without return type
+
+      function add() {
+        a = 10;
+        b = 20;
+        console.log("this is a addition of a,b", a + b, "<br>");
+      }
+      add();
+
+      function add5() {
+        d = 30;
+        e = 40;
+
+        console.log("this is a addition of d,e", d + e, "<br>");
+      }
+      add5();
+      console.log(add() * 2);
+
+
+
+
+      
+
+        function indian(city, country) {
+          // function ka use tab kate hai jab ek hii chiz kafi sare content ke liye likni hai yaha function ke baad function ka naam aayega and () isme variable aayega,yaha hum coma lagakar multiple argument likh sakte hai, ab jab hum function ko nichee call karenge to console.log wala data print hoga
+
+          // hum yaha default value bhi set kar sakte hai like function indian (city , country = "This is country "){ , ab agar hum function ko call karte time city2 mein country na likhe to "This is country " ye print hoga
+
+          console.log(city + " is beautiful");
+          console.log(city + " the city of " + country + " " + " is beautiful ");
+        }
+        let city1 = "Delhi";
+        let city2 = "Mumbai";
+        let city3 = "Goa";
+        let country = " India";
+
+        indian(city1, country);
+        // yaha humne function ko call kiya to city1 ki value and is beatiful print hoga
+        indian(city2, country);
+
+
+        // return in function----------------------------------------------->
+        function sum(a, b, c) {
+          return a+b+c; // iss tarah se hum value return karwa sakte hai , return ke baad jo bhi code likha hai wo execute nahi hota hai 
+
+          console.log("congratulations"); // yaha ye print nahi hoga 
+
+        }
+        console.log(sum(a,b,c)); // ab humne upper value return karwayi hai so print karwane ke liye yaha console.log me humne iss function ko call kiya hai 
+
+
+    
+    </script>
+  </body>
+</html>

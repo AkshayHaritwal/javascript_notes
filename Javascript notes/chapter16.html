@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom(Document object module) , window object , document object , changing paragraph text</title>
+</head>
+<body>
+    <h1>This is an tutorial for dom </h1>
+    <p>Hey my name is akshay haritwal</p>
+
+    
+    <script>
+
+        // window object -- 
+        console.log(window);// isse window object print ho jaayegi , window object me pure webpage ke objects ka collection hota hai 
+
+
+        // document object - me html and css ki sabhi details store hoti hai , this document object is used to make changes in html and css with the help of javascript 
+        console.dir(document); // this is how we can print document object 
+
+
+        // all in document object - so document object me iski ek property hoti hai all jisme humne jo html tag use kiye hai  unka collection store hota hai 
+        console.dir(document.all); // iss tarah se hum iss document ke html tags ke collection ko print karwa sakte hai , jese hum isko print karwayenge to waha likha hua aayega HTMLALLCOLLECTION  , jab hum isko expand karenge to hum dekh paayenge jo tag humne iss html document me use kiye hai , harr html tag ke aage uska index number hoga jiski help se hum usko access kar sakte hai and jese hi hum kisi tag pe scroll karenge to uss tag ka content heighlight ho jaayega
+
+
+        // changing paragraph text ----->
+        // yaha hum p tag ki text ko change karenge uske liye hum HTMLALLCOLLECTION me se iss p tag ka index number pata karna hai then index se value access karne ke liye all ke aage index ko [] me likhenge to paragraph access ho jaayega
+
+        console.dir(document.all[7]);
+
+       console.log( document.all[7].innerText = "rohit sharma"); //ab hume iske innertext ko change karna hai to uske liye hum likhenge .innerText= "" to ab p tag ka content rohit sharma se replace ho jaayega 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

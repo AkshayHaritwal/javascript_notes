@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Variables, Data type and operators in javascript</title>
+  </head>
+  <body>
+    <h1>
+      This is an tutorial for Variables, Data type and operators in javascript
+    </h1>
+
+    <script>
+      // javascript is a case sensetive language , javascript mei hum variable mei data store karwa sakte hai ,variable name mei hum character , number ,_ and $ use kar sakte hai , but variable name ki suruaat hum number se nahi kar sakte hai  -->
+
+      var a = 26;
+      // iss tarah se hum javascript mei variable likh sakte hai variable container ki tarah hote hai jo data ko store karte hai ,isme 26 number hai so iska data type intezar hai
+
+      var b = "Akshay";
+      // issme akshay alphabet hai so iska data type string hai ,string ko humesa "double couts" mei likhte hai
+
+      // ab agar hum yaha console.log(a) karenge to "a" ki value print hogi and "b" karenge to b ki value print hogi
+      console.log(a);
+      console.log(b);
+
+      console.log("the value of a is -->", a);
+      // iss tarah se hum console mein answer ke sath message bhi print karwa sakte hai yaha message aage likha hai to wo a ki value ke aage print hoga agar a ki value ke pichee bhi kuch print karwana hai to "," lagakar likh skte hai
+
+      var c = 20;
+
+      console.log(a + b);
+      console.log(a + c);
+      // ye karne se ye dono ek sath add hoke print honge
+
+      console.log("the addition of a+b -->", a + b);
+      // similarly isme bhi iss tarah se message print karwa sakte hai
+
+      var x = 20;
+      var y = 40;
+      var z = 10;
+
+      console.log(x + y - z);
+      //    iss tarah se likhte hai too iska matlab hai pahle x+y hoga then unke total mein se z subtract hoga
+
+      var w = "20";
+      var v = 5;
+      console.log(w + v);
+      console.log(w - v);
+      console.log(w * v);
+
+      // yaha humne 20 ko "undercots " mein daalke string bana diya hai so wo ab string ki tarah uske aage print hoga na ki add hoke 205 print hoga , but subtract ,* and / mein ye normal intezar ki tarah hii behave karega
+
+      var w = "20";
+      var v = "7";
+      var j = 10;
+      console.log(w + v - j);
+      // yaha w and v ki value string hai so string ki tarah add hogi answer aayega 207 lekin j intezar hai so 207- 10 ho jaayega 197
+
+      console.log((w - v) * j);
+      // but subtract ,* and / mein ye normal intezar ki tarah hii behave karega
+
+
+      
+      //    There are 2 types of  data type --------------->
+
+      // 1. primitive data type:- number, string, boolean, undefined, null and symbol
+      // 2. reference data type :- arrays and objects
+
+      // Number data type --->
+      var num = 1;
+      console.log(num);
+
+      // type pata karne ke liye hum likhenge    console.log(typeof(num)) to ye hume num variable ki jo value hai uska data type bata dega
+      console.log(typeof num);
+
+      // string data type ----->
+      name = "Akshay";
+      console.log(name);
+
+      console.log(typeof name);
+
+      // This is boolean data type------>
+      var bo = true;
+      var bo2 = false;
+      console.log(bo);
+      console.log(typeof bo);
+      console.log(bo2);
+      console.log(typeof bo2);
+
+      // undefined----->
+      var w;
+      // w ko humne define nahi kiya hai so iska data type ho jaayega undefined
+      console.log(w);
+      console.log(typeof w);
+
+      // null------>
+      var x = null;
+      // yaha x mein humne diya hai null iska matlab hai isme kuch nahi aayega so iska data type hai null
+      console.log(x);
+      console.log(typeof x);
+
+      // operators in javascript---------------->
+
+      // 3+4 yaha "+" operator hai and 3, 4 operands hai
+
+      // operator 3 type ke hote hai : -
+
+      // 1. urinary operator - isme kewal ek hii operand hota hai------->
+      //  example d = -8;
+      d = -8;
+      console.log(d);
+
+      // 2. binary operator - isme 2 operand hote hai------->
+
+      // example e = 4+6  yaha isme 2 operand hai 4 and 6
+      e = 4 + 6;
+      console.log(e);
+
+      // arthemetic operator :---------->
+      // arthemetic operator are +,-,*,/ these are called arthemic operators
+
+      var num1 = 3;
+      var num2 = 2;
+
+      // yaha num1 num2 ki jagah kuch koi naam likh sakte hai
+
+      console.log("The value of num1 + num2 is " + (num1 + num2));
+      console.log("The value of num1 - num2 is " + (num1 - num2));
+      console.log("The value of num1 * num2 is " + num1 * num2);
+      console.log("The value of num1 / num2 is " + num1 / num2);
+      console.log("The value of num1 / num2 is " + (num1 % num2));
+
+      // iss tarah se hum string ko print karwa sakte hai + karne se string ()bracket wale result ke sath add hoke print hogi
+
+      console.log("The value of num1 ** num2 is " + num1 ** num2);
+      // agar iss tarah se likhnge to iska matlab hai 3 phir next wala number iski power ban jaayega 3 ki power 2 yani 3 ka square yaha num2 mei 3 likhnege to iska matlab hai cube
+
+      console.log("The value of num1 ++  is " + num1++);
+      // iss tarah se likhte hai to iska matlab hai num1 ki value mei 1 add ho jaayega but print 3 hii hoga .
+
+      console.log("The value of num1 ++ num2 is " + ++num1);
+      // yaha num1 ki value mei 1 add ho jaayega and add hoke hii print hoga yaha 5 aa raha hai because 1 baar increment upper bhi ho chuka hai agar usko comment out kar de too 4 print hoga
+      // same for subtraction
+
+      // 4.assignment operators----------->
+      var c = 20;
+      // yaha humne c ki value 20 assign kar di hai so it called assignment operator
+      console.log(c);
+
+      c += 20;
+      // iska matlab hai c ki value + karni hai 20 mei , upper humne c ki value 20 assign kar rakhi hai so yaha 20+ 20 40 ho jaayega
+      console.log(c);
+
+      c -= 20;
+      // iska matlab hai c ki value - karni hai 20 mei
+      console.log(c);
+
+      c *= 20;
+      // iska matlab hai c ki value * karni hai 20 mei
+      console.log(c);
+
+      c **= 20;
+      // iska matlab hai c ki value ki power bana do 20
+      console.log(c);
+
+      c /= 20;
+      // iska matlab hai c ki value / karni hai 20 mei
+      console.log(c);
+
+      c %= 20;
+      // iska matlab hai c ki value / karni hai 20 se and jo remainder bache usse print karwa do
+      console.log(c);
+
+      // comparision operators---------------->
+      var x = 30;
+      var y = 40;
+      console.log(x == y);
+      // iss tarah se 2 baar == lagayenge to iska matlab hai kya x y ke barabar hai agar hai to true print hoga nahi hai to false print hoga
+
+      console.log(x >= y);
+      // iska matlab hai kya x y se greater than ya barabr hai agar ha too true print hoga nahi too false, yaha false print hoga becaue na greater hai na hee barabar hai
+
+      console.log(x <= y);
+      // yaha kya x y se small ya brabar hai koi ek bhi value sahi huuyi to true nahi to false so yaha true print hoga because x small hai y se
+
+      console.log(x > y);
+      // iss tarh se kewal single comparision bhi kar sakte hai
+
+      console.log(x != y);
+      // iska matlab hai kya x ki value y ke equal nahi hai agar ye sach hai to true print kar do otherwise false
+
+      let ak = 10;
+      let bk = "10";
+
+      console.log(ak == bk);
+      // yaha ye true print karega jabki bk ki value string me 10 hai , so ye operator type ko ignore karke sirf number value ko compare kar rha hai
+      // agar hume type and value dono ko compare karwana hai to === ka use karenge
+      console.log(ak === bk);
+      // ab yaha false print hoga
+    </script>
+  </body>
+</html>

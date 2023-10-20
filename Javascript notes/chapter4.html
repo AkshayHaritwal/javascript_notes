@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arrays - array , indexing , value change ,empty array , methods in array , slice , splice ,array reference , const array nesting
+       and 
+       objects -  object , value access , value update , adding new key value pair , delete ,nesting , arrays of object 
+      </title>
+  </head>
+  <body>
+    <h1 id="hello">This is an tutorial for Arrays and objects</h1>
+
+    <script>
+      // array is also a object , aaray me hum ek variable bana ke usme multiple values ko store karwa sakte hai and unko index ki help se access kar sakte hai , array me hum kisi bhi type ki value store karwa sakte hai like intezar ,string ,boolean  etc    array mutable hote hai yaani  iski existing value ko change kar sakte hai and ye change original array me hoga---------------------->
+
+      let names = ["Akshay", "Sunil", 20, 22, 19, 13, "aryan"];
+      console.log(names);
+      // yaha hum jese hee ye karenge too []isske andar wali sabhi value print ho jaayegi
+
+      // yaha agar particular kisi value ko print karwana chate hai to uska index number de javascript index number 0 se start hota hai
+      console.log(names[0]);
+      // ye karne pe Akshay print hoga because  uska ndex number 0 hai , 1 karne se sunil print hoga like this continue
+
+      console.log(names.length);
+      // names.length karne se names ke andar kitne elements hai wo number print hoga yaha 7 hai akshay , sunil , 20,22,19,13, aryan so 7 print hoga
+
+      
+      let info = ["cricket", 10, "champion", 56.7];
+      console.log(info[0].length);
+      // too iss tarah se hum 0 index wali value pe uske method apply kar sakte hai
+
+
+
+      // empty array ------>
+      let empty = []; // iss tarah se hum empty array print karwaa sakte hai
+      console.log(empty);
+
+
+      let fruit = ["Apple", "Banana", "Mango"];
+      console.log(fruit);
+
+      fruit[0] = "Grapes"; // so yaha ye karne se 0 index wali value ab change hoke ho jaayegi Grapes
+
+      console.log(fruit);
+
+
+
+      // methods in array ------------------------------------->
+
+      let cars = ["bmw", "Audi", "Maruti", "lemorgini"];
+      console.log(cars);
+
+      // push method - push method me hum jo bhi value denge wo array me last me jaake Add ho jaayegi ----------->
+      cars.push("Toyota");
+      console.log(cars);
+
+      // pop method ki help se hum array ke last wale item ko delete kar sakte hai ---------------->
+      cars.pop();
+      console.log(cars);
+
+      // unshift ki help se hum array ke starting me koi element add kar sakte hai ------------->
+      cars.unshift("Thar");
+      console.log(cars);
+
+      // shift ki help se hum array ke starting element ko delete karwa sakte hai ------------>
+      cars.shift();
+      console.log(cars);
+
+      // indexOf - ki help se hum pata kar sakte hai ki koii particular element konse index pe hai hai iske liye argument me uss value ko likenge jiska index find karna hai ----------------->
+      let color = ["red", "green", 26, "blue", "black", 100, 200];
+
+      console.log(color.indexOf("blue"));
+
+      // includes-- ke argument me hum jo value denge agar wo value array me exist karti hai to true print hoga and nahi karti to false------->
+      let value = ["red", "green", 26, "blue", "black", 100, 200];
+      console.log(value.includes("red"));
+
+      // concadination in array - so concat ki help se hum 2 arrays ki values ko ek sath ek hii array me print karwa sakte hai---------->
+
+      let a = ["rohit", 264, "Jaiswal", 140, "Guptil", 234];
+      let b = ["Dhoni", 180, "virat", 183];
+
+      console.log(a.concat(b));
+
+      //  reverse - ki help se hum array ke elements ko reverse me print karwa sakte hai --------------------->
+
+      let player = ["rohit", 264, "Jaiswal", 140, "Guptil", 234];
+      console.log(player.reverse());
+
+
+      // slice - slice ki help se hum indexing kar sakte hai yaani 1 index se lekar 2nd index tak ki value print kar do------->
+
+      let colour = ["red", "black", "orange", "blue", "white"];
+      console.log(color.slice()); // agar hum iss tarah se slice me koi argument nahi denge to wo pura array print kar dega
+
+      console.log(colour.slice(2)); // yaha ye 2nd index se lekar last tak ki value print kar dega
+
+      console.log(colour.slice(2, 6)); // yaha 2nd index se lekar 5th index tak ki value print hogi 6 count nahi hoga
+
+      console.log(colour.slice(-2)); // -2 ka matlab hai pichee se 2 value print kar doo
+
+
+      // splice - ki help se hum single code se element delete karwa sakte and add karwa sakte hai ----------------->
+
+      let colours = [
+        "red",
+        "black",
+        "orange",
+        "blue",
+        "white",
+        "pink",
+        "brown",
+      ];
+      console.log(colours);
+
+      console.log(colours.splice(4)); // iss tarah se agar hum splice me single value denge to iska matlab hai start ke 4 element ko chor ke baaki sab delete kar do
+      console.log(colours);
+
+      console.log(colours.splice(1, 2)); // iss tarah se agar hum 2 argument dete to iska matlab hai 1 index se 2 element delete kar do so yaha 1st and 2nd index wali value delete ho jaayegi
+      console.log(colours);
+
+      colours.splice(1, 0, "Akshay", "choudhary"); // iska matlab hai 1st index pe jaao 0 element delete karna hai and waha ye 2 value add kar do so first index pe ab ye wali value add ho jaayegi
+      console.log(colours);
+
+      // sort method ---------------->
+      let wcars = ["bmw", "Audi", "Maruti", "lemorgini"];
+      console.log(wcars.sort()); // too is tarah se hum string ki sorting karwa sakte hai isme ye elements ascending order me print hoke mileenge , numbers pe sorting karenge to wo ascending order me print nahi honge because sort method pahle number ko string me convert karega then unke utf code ke hisab se unko arrange karega
+
+
+
+
+      // array references ---------------------->+
+      let arr = ["a", "b", "c"];
+
+      let arrcopy = arr; // to iss tarah se likhne ka matlab hai ab arrcopy ki value bhi wahi hogi jo arr ki hai and agar hum kisi value  me koi bhi chnages karenge to wo changes dono me honge this is called array references
+
+      console.log(arr.push("d"));
+      console.log(arrcopy); // so yaha ab ye push wala change arrcopy me bhi show hoga and agar hum arrcopy me koi change karenge to to wo arr me bhi show hoga
+
+
+
+      // const arry - agar hum kisi array ko const variable me store karwaye to hum usme operation to perform kar sakte hai but same naam se or koi array nahi bana sakte hai   ------->
+
+      const vegetable = ["palak", "potato"];
+      console.log(vegetable);
+
+      // vegetable= color;// iss tarah se hum kisi const array ko dusre variable ki value assign nahi kar sakte hai
+      // console.log(vegetable);
+
+
+
+      // nesting in arrays - so hum array me bhi individual array banake usme value store karwa sakte hai  ------------------------>
+
+      let nest_array = [
+        [1, 2],
+        [3, 4],
+        [4, 5],
+      ]; // so yaha index 0 be first wala box index like this continue
+      console.log(nest_array);
+
+      console.log(nest_array[1]); // iss tarah se hum first index ki value ko access karenge to fisrt index wala array box print hoga
+
+      console.log(nest_array[0][1]); // to iss tarah se hum 0 index wale array box ki first index wali valur acces kar sakte hai
+
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+      // ----------------------------------------------------------------------------------------------------------------------------------->
+
+        // object literals -  object mei hum key value pair mei information store karwa sakte  hai . object mei hum koi bhi type ki value store karwa sakte hai like intezar, string , float, boolean array etc  -------------------> 
+
+        // yaha humne ek variable banaya hai employee , employee variable ki jo value hai usko humne object mei store karwaya hai , object mei hum sabse pahle key likhenge then : lagakar uski value , yaha key hai Name and value hai "Akshay" , multiple item store karwane ke liye comma lagakar likte jaayenge . object me jaruri nahi ki ji sequence me humne likha hai usi sequence me data print ho isme sequence change ho sakte hai kie age wala ki value pair pahle print ho jaaye  name wala last like this .
+
+      const employee = { Name: "Akshay",Age: 20,City: "Jaipur", hobbies:["cricket", "gaming", "music" ] };
+      console.log(employee);
+
+      console.log(employee["Name"]) //# iss tarah se hum kisi particular key ki value acces kar sakte hai , jaha hum pahle array wagera mei index mei index number likhte thee waha ab direct key likhkar value access kar sakte hai 
+      console.log(employee.Age);// iss tarah se kisi particular element ki value print karwa sakte hai easily
+
+
+
+
+      const game ={1:"Pubg" , country : "india" , 2: "Gta" , 3:"minecraft"} 
+
+      console.log(game[2]) // object key ko humesha string me convert kar deta hai so yaha agar mene iss tarah 2 likha hai to iska matlab hai 2 key ki value print kar do yaani gta naa ki second index ki value because object me index to exist karta hii nahi 
+
+      
+      const student = {name : "rohit" , age : 20 , city: "jaipur"}
+
+      student.name= "Martin"; // too iss tarah se hum existing key ki value koo change kar sakte hai 
+      console.log(student);
+
+      student.gender = "male"; // iss tarah se hum new key value pair ko object me add kar sakte hai 
+      console.log(student);
+
+     delete student.city ; // iiss tarah se hum kisi bhi key value pair ko delete kar sakte hai 
+     console.log(student);
+
+
+    //  nesting in object - so yaha empInfo name se main object hai and usme 3 nested object hai ------------------------->
+
+    const empInfo = {
+       Aryan:{Age:13 , city:"Jaipur" , hobbies: "Travel" },
+       sunil:{Age : 20, city : "delhi", hobbies : "cooking"},
+       kushal :{Age : 22 , city : "shimla" , hobbies :"vlogging"}
+      };
+
+     console.log( empInfo.Aryan); // iss tarah se hum main object me se kisi nested object ko print karwa sakte hai 
+
+    console.log(empInfo.Aryan.Age); // iss tarah se hum nested object ki kisi particular value ko print karwa sakte hai
+
+    empInfo.Aryan.Age = 12; // iss tarah se hum nested object ki valur ko update kar sakte hai 
+
+    console.log(empInfo.Aryan); 
+
+
+    // arrays of objects - so humne yaha ek array banaya hai iss array me humne 2 object daale hai -------------------------------------->
+
+    const company = [
+      {name:"jio" , country:"india" , net:20},
+      {name:"aritel", country:"india" , net:17}
+    ]
+
+    console.log(company);
+
+    console.log(company[1]); // iss tarah se hum first index wale object ko access kar sakte hai jo ki airtel wala hai 
+    console.log(company[1].country); // iss tarah se hum 1st index wale object ki particular value access kar sakte hai 
+    company[1].net = 19; // iss tarah se hum value update kar sakte hai 
+    console.log(company[1]);
+    company[1].ceo = "chandan"; // iss tarah se hum objectme new key value pair add kar sakte hai 
+    console.log(company[1]);
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      // document.querySelector("#hello").innerHTML = names;
+      // // iss tarah se hum inner html ke content ko change kar sakte hai yaha hello id wale element ka content ab names ke array wale content se replace ho jaayega
+
+      // let a = prompt("Enter Your name");
+      // let b = prompt("Enter your roll number");
+      // console.log([a+b]);
+      // // iss tarh se user se array mei input le sakte hai
+    </script>
+  </body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scope and if else conditions , nested if else , && || != operator,switch case , </title>
+  </head>
+  <body>
+    <h1>This is an tutorial for scope and condition</h1>
+
+    <script>
+      var line1 = "This is senetence 1";
+
+      var line1 = "This is redeclaration of sentence 1";
+      // iss tarahse hum var ko redeclare kar sakte hai iska scope global hota hai
+      console.log(line1);
+
+
+
+      
+      let a = "Akshay";
+      // let ka global level scope hota hai, hum let ko redeclare nahi kar sakte hai but hum let ki value ko udate kar sakte hai
+      console.log(a);
+      a = "Akshay choudhary";
+      console.log(a);  // so ab yaha a ki value update hoke ho jaayegi Akshay choudhary
+
+      {
+        // but yaha hum let a ko declare kar paa rahe hai because ye iss block ke andar hai , bahar wala global let hai waha hum let a ko 2 baar declare nahi kar sakte similarly yha function mei bhi let a ko 2 baar declare nahi kar sakte hai , yaha console.log(a) iss block ke andar likhnege too ak print hoga and block ke bahar karenge too akshay print hoga
+        let a = "Ak";
+        console.log(a);
+      }
+
+
+
+
+
+      const b = "This can't be changed";
+      // const ko hum na to redeclare kar sakte hai naa hii iski value change kar sakte hai 
+      const c = "This is unable to change ";
+
+     // c = "hello"; 
+     // iss tarah se hum yaha c ki value ko update bhi nahi kar sakte haai 
+      console.log(c);
+
+
+
+
+
+      let age = 16;
+      // ye humne khudene value assign kar di hai
+
+      // let age = prompt("Enter Your Age")- iss tarah se user se value le sakte hai
+
+      // yaha humne age 16 declare kar di hai
+      if (age > 18) {
+        // yaha iska matlab hai agar age 18 se upper hai to print kardo ye agar 18 se nichee hai to else mei jo likh hai wo print hoga yaha let mei age hai 22 so if wala you are eligble to vote ye print hoga
+        console.log("You are eligble to vote");
+      } else if (age == 17) {
+        // else if ka use multiple condition check karwane ke liye kiya jaata hai , yaha age==17 comparision operator hai iska matlab hai kya age 17 hai hai to ye else if ke andar ka content print hoga , agar age 17 nahi hai to else wali condition apply hogi
+        console.log("you can apply for voter id");
+      } else if (age == 16) {
+        console.log("you can apply for bike riding licence");
+        // jaha condition true ho jaayegi wo uska content print ho jaayega yaha age sabse pahle age 18+ nahi hai too , next pe jaayega yaha age 17 nahi hai too , next yaha age 16 hai so ye print ho jaayega agar yaha bhi age 16 na hoti too else wala content print hota
+      } else {
+        // agar if ke andar wali condition satisfy nahi ho rahi hai to else ke aandar jo likh hai wo print hoga , agar hum let age mein 18 se niche kar de too you cant vote print hoga
+        console.log("You can't vote");
+      }
+
+
+      
+      // nested if else condition 
+
+      let marks = 60;
+
+      if (marks==36) {
+        console.log("Pass")
+                // to iss tarah se hum ek if ya else if ke andar or bhi kafi saari if else condition apply kar sakte hai 
+        if (marks==90) {
+          console.log("Grade = A")
+        } else {
+          console.log("Below A grade")
+          
+        }
+        
+      }
+
+      else{
+        console.log("Fail")
+      }
+
+
+
+
+
+
+
+
+
+      // And(&&) operator - every details must be correct
+
+      let pin = 1234;
+      let password = 4567;
+      let empolyeeid = 5555;
+      let enployeeno = 6666;
+
+      if (pin == 1234 &&  password == 4567 && empolyeeid == 5555 && enployeeno == 6666) {
+        console.log("Welcome Akshay");
+      } else {
+        console.log("Wrong user details");
+      }
+
+      // yaha jab sab information sahi hogi tab hii welcome akshay print hoga because humne AND (&&) operator use kiya hai ek bhi galat huyi to else wala print hoga
+
+      // agar user se print karwana hai too iss tarah likhenge
+
+      username = prompt("Enter Username");
+      Password = prompt("Enter password");
+
+      if (username == "Akshay" && Password == "ak1234") {
+        console.log("Welcome Akshay");
+        // agar screen pe print karwana hai too document.write kar denge
+      } else if (username == "sunil" && Password == 1234) {
+        console.log("Welcome sunil");
+      } else if (username == "aryan" && Password == "ar123") {
+        console.log("Welcome Aryan");
+      } else {
+        console.log("wrong user details");
+      }
+
+      let name  = "akshay";
+      let surname = "choudhary";
+      if (name == "akshay" && surname == "choudhary") {
+        console.log(name, "welcome in  javascript class ", name + surname);
+
+        // iss tarah message ke sath value ko add kar sakte hai
+      } else {
+        console.log("sorry Wrong user details");
+      }
+
+
+
+
+      // OR(||)  operator -
+      //  or operator mein koi ek bhi information sahi hai too if wala print hoga chahe 4 mein se hii ek sahi ho but aagar sabhi galat hai to else wala
+      pin = 1234;
+      pass = 5678;
+      if (pin == 1234 || pass == 56788) {
+        console.log("welcome Rohit");
+      }
+       else {
+        console.log("sorry you are not Rohit");
+      }
+
+
+
+
+
+      // Not(!==) operator-
+
+      pin = 1234;
+      pass = 5678;
+      if (pin !== 1234 || pass !== 5678) {
+        // yaha not operator ka matlab hai pin and password jo humne upper de rakha hai wo nahi hona chaiye agar wo hua to else wali value print hogi uske alawa kuch bhi likh do to if wali value print hogi
+        console.log("welcome Surya ji");
+      } else {
+        console.log("sorry you are not surya");
+      }
+
+
+
+      
+
+      // switch case statement
+
+      //   jese hii hum swith likhenge to option aayenge unme se square wale swith par click karenge to ye print hoga
+        switch (key) {
+      //     //   isme swith key mei variable ka naam likhte hai
+          case value:
+      //         // yaha value mei values deni same like jisko check karwana chate hai
+              break;
+              // break se iske aage ki value print nahhi hogi agar ye case true ho gaya too 
+
+          default:
+              break;
+      // default else ki tarah hota hai yaani upper wale agar sabhi case false ho jaate hai to default wali value console me print ho jayegi 
+        }
+
+      
+
+  let hello = "Monday";
+
+      switch (hello) {
+        case "Monday":
+          console.log("Its monday today");
+          break;
+
+        case "Tuesday":
+          console.log("Its tuesday today");
+
+          break;
+        case "Wednesday":
+          console.log("Its Wednesday today");
+
+          break;
+        case "Friday":
+          console.log("Its Friday today");
+
+          break;
+
+        default:
+          console.log("Wrong details");
+          break;
+      }
+    </script>
+  </body>
+</html>

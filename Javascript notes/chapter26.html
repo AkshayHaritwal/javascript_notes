@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change event, input event , text editor</title>
+</head>
+<body>
+    <form action="/action">
+        <input type="text" name="name" id="name" placeholder="Enter your name">
+        <input type="password" name="password" id="pass" placeholder="enter your password">
+        <button>submit</button>
+    </form>
+<h1>Text editor</h1>
+<input type="text" placeholder="type here" id="text">
+<p>para</p>
+
+
+
+    <script>
+        let form = document.querySelector("form");
+        form.addEventListener("submit",function (event) {
+            event.preventDefault();
+            
+        });
+
+        let user = document.querySelector("#name");
+// change and input event is only used for input , select , and textarea , change event tab triger hota hai jab input box pahle wo jis state me thaa yaani empty or baad me jis state me humne usse chora (yaani value enter karke chora) agar usme change aa jaata hai to change event triger hoga , input event ek ek word pe triger hoga wahi change event final value likhne ke baad jese hii input box se bahar aayenge tab triger hoga 
+        user.addEventListener("change" , function () {
+            console.log("the final value has been changed");
+            console.log("Now final value is "+ user.value);
+            
+        });
+
+// input event ek ek word pr triger hoga , yaani agar humne jses hii input box me koi word likha too ye callback execute ho jaayega and isme jo programe likha hai wo print ho jaayega
+        user.addEventListener("input" , function () {
+            console.log("You entered a word");
+            console.log("the word you entered is "+ user.value);
+            
+        });
+
+
+        // text editor ----------------->
+
+        let inputbox = document.querySelector("#text");
+        let para = document.querySelector("p");
+        inputbox.addEventListener("input" ,function () {
+            console.log(inputbox.value);
+            para.innerText = inputbox.value;
+            
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

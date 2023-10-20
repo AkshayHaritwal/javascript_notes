@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API request using javascript</title>
+</head>
+<body>
+
+
+    <script>
+        //yaha hum fetch ki help se request send karenge --->
+
+        let url = "https://catfact.ninja/fact"; // variable banaya hai url naam se = catfact api ka link paste kar diya hai 
+
+        fetch(url); // yaha fetch me url variable ko daal diya hai isse ek request send ho jaayegi 
+
+        // yaha agar  console me jaayenge to kuch show nahi hoga lekin hum network me jaaye then fact wali request pe click kare to waha  response me hume json data show hoga
+
+        //console.log(fetch(url));                    // kare to hum dekhenge ki ye method hum promise reutrn karta hai so hum yaha promise wale method use kar sakte hai 
+
+
+         fetch(url)
+// so yha agar promise resolve ho request sucessfully chali jaati hai to then me jo likha hai wo print ho jaayega nahi to catch wala print hoga 
+        .then((res)=>{
+            console.log(res);
+            // so agar promise fullfill  ho jaati hai to hume console me reponse return hoga , ye data readable form me nahi hoga lekin , agar hum readable form me data chate hai to uske liye method hai .json so hum yaha return karwa denge res.json()
+
+            return res.json()  // so agar ye method sucessfully run ho jaata hai to next then ki help se iska data print ho jaayega 
+
+        }) 
+        .then((data)=>{
+            console.log(data); //data ki help se res ke data print ho jaayega 
+            console.log(data.fact); //.fact ki help se particular fact wali key ki value access ho jaayegi
+            return fetch(url) // yaha humne dubara request send ki 
+        })  
+        .then((res)=>{
+            console.log(res) // agar request sucessfully send ho jaati hai to response return hoga 
+            return res.json() // iski help se data readable form me convert hoga 
+        })
+        .then((data2)=>{
+            console.log(data2); // iski help se 2nd data print ho jaayega
+        })
+        .catch((error)=>{
+            console.log(error)
+        })
+
+
+
+
+        // using fetch with async and await-------------------->
+
+        // yaha hum sab upper wala kaam async and await ki help se karenge 
+
+        let url2 = "https://catfact.ninja/fact";
+
+        async function getfact () {
+
+            try {
+                     
+           let res= await fetch(url2); // yaha humne fetch ki help se request send kar di hai isse ek variable me store karwa liya hai  , yaha await keyword ko use kiya hai so jab tak ye call complete nahi ho jaati tab tak aage ka koi kaam nahi hoga  , so yaha hume ek promise return ho jaayega isse print bhi karwa sakte hai 
+           console.log(res);
+           let data = await res.json() // yaha humne iski help se data readable form me convert ho jaayega 
+           console.log(data);
+           console.log(data.fact);
+
+        //    agar dubara request send karni hai to same code repeat 
+
+        let res2 = await(fetch(url2));
+        let data2 = await  res2.json()
+        console.log(data2.fact);
+
+
+            } catch (error) {
+                console.log("error occured");
+                // so agar try wale code me koi error aa jata hai to ye statement print ho jaayegia 
+            }
+            
+        }
+
+
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

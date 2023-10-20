@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow function , arrow function single argument , implicit return in arrow function , set timeout , set interval , this keyword with arrow function</title>
+</head>
+<body>
+    <h1>Arrow function in javascript</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script> 
+
+    // arrow function ------------------------------------------>
+
+// arrow function ko likhene ke liye sabse pahle ek variable banayenge then usme iss function ko store karwayenge isme sabse pahle argument likhte hai then => next hum function me jo task perform karwana chate hai wo likhte hai 
+    const sum = (a,b)=>{
+        console.log(a+b);
+    }
+
+    sum(11,121); // normally iss tarah se function ko call kar sakte hai , isme a and b argument ki value de di hai 11, 121 
+
+// agar hum function me single argument dena chate hai to () compulsory nahi hai and agar without argument function hai to usme empty () dene honge 
+const cube = n =>{
+    return n*n*n;
+}
+console.log(cube(4));
+
+
+// implicit return in arrow function - ---------------------------------->
+
+// iska matlab hai agar hum function me koi single task return karwa rahe hai to usme return keyword likhna compulsory nahi hai and isme hum {} ki jagah () use karte hai 
+
+const pow = (a,b)=>(
+    a**b 
+);
+
+console.log(pow(4,2)); // print karwane ke liye same return me karwate hai wese hii likhna padega 
+
+
+
+
+
+// setTimeout function ------------------------>
+
+// setTimeout me hum jo function hum likhte hai wo jitna humne time likha hai uske baad execute hoga baaki code pahle hii execute ho jaayega 
+
+console.log("hello there");
+
+// setTimeout function ko define karne ke liye sabse pahle setTimeout keyword likhenge then (argument1 , argument 2), argument 1 me hum function define karte hai and argument 2 me time likhenge  in milli second (1s = 1000ms)
+// setTimeout(fun , time); 
+setTimeout(()=> {
+    console.log("AKshay");
+}, 4000);
+
+// yaha humne arrow function without argument ko as a function argument diya hai and time diya hai 4000 ms
+
+console.log("welcome");
+
+
+// setInterval ----------------------->
+
+// setInterval me hum jo function likhte hai wo jitna humne time diya hai utne time tak rukege and then phirse function ko execute karega , ye karte hii rahega 
+
+// setInterval(()=> {
+//     console.log("Hello world good morning");
+//  }, 2000); 
+// iss tarah se ye har 2s me Hello world good morning ye wala statement print karwayega ab agar hume iss stop karna hai to isko id me store karwayenge then clearInterval(id); id name kuch bhi ho sakta hai 
+
+
+
+let hello = setInterval(()=> {
+    console.log("Hello world good morning");
+ }, 2000); 
+
+ clearInterval(hello); // iss tarah se hum set interval ko stop karne ke liye usse kisi variable me store karwa sakte hai and isse stop karne ke liye clearInterval(varaible name) se stop ho jaayega 
+
+
+
+//  This keyword with arrow function -------------------------------->
+
+const student ={
+    name:"martin",
+    age:20,
+    getName: function () {
+        console.log(this.name); // so normal function ke liye this hota hai object yaha object hai student 
+        
+    },
+
+    getAge : ()=>{ 
+        console.log(this.age); // so yaha arrow function me this ka matlab hai object ka scope , object hai student iska scope hai global so global window me age variable ki value defined nahi hai isliye undefined print hoga 
+
+    }
+}
+
+student.getName();
+student.getAge();
+
+    </script>
+</body>
+</html>

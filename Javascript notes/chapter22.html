@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This keyword in addEventListener</title>
+</head>
+<body>
+
+    <button class="like">Like Button</button>
+    <h1>this heading is for this</h1>
+    <p>This is an paragraph for this</p>
+
+
+    <script>
+        
+        // This in addEventListner ---------------->
+
+        let likeb = document.querySelector('.like');
+
+        likeb.addEventListener("click",function () {
+            console.log(this); // this ka matlab jiske liye ye function call kiya gaya hai , yaha this ka matlab hai likeb variable so jese hii button pe click karenge to likeb print hoga yaani button print ho jaayega 
+
+            console.dir(this.innerText); // this referes to likeb variable so likeb variable ka innertext print ho jaayega 
+            
+            console.log(this.style.backgroundColor = "red"); // jese hii click karenge to button ka background color red ho jaayega
+            
+        });
+
+        // for multiple --------->
+        let h1 = document.querySelector('h1');
+        let p = document.querySelector('p');
+
+        function changeColor() {
+            console.dir(this.innerText);
+            console.log(this.style.backgroundColor= "red");
+            
+        };
+
+        likeb.addEventListener("click",changeColor); 
+        h1.addEventListener("click",changeColor); 
+        p.addEventListener("click",changeColor); 
+        
+    </script>
+</body>
+</html>

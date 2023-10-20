@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+<body>
+    
+    <!-- JSON full form = javascript object notation  , JSON sirf ek format hai agar hume api ke through koi data return karwana hai to wo json format me hii return hoga -->
+    <!-- JSON me jo data return hota hai wo kafi jyada similar hota hai javascript object se kyuki isme bhi data key value pair ki form me store rahta hai -->
+    <!-- JSON me key string hoti hai jabki javascript object me key ko "" me nahi likhte hai  -->
+
+    <!-- JSON ke baare me or jaane ke liye visit kare www.json.org -->
+    <!-- JSON value mein hum ye use kar sakte hai ==> object, array ,stringnumber ,"true" ,"false","null"-->
+
+    <!-- JSON validators search karenge to website aayegi uski help se hum apna json code check kar sakte hai ki code valid hai ya nahi -->
+
+
+
+    <script>
+        
+        // jab API respond karti hai to wo hume ek string format me JSON data return karegi , // to iske liye hum ek method use karte hai JSON.parse(data) ye uss string format wale data ko javascript object me convert kar dega taki hum iss data ko js me access kar sake
+        let jasondata = '{"fact": "A cat will tremble or shiver when it is extreme pain.","length": 53}';
+
+        let validresponse = JSON.parse(jasondata); //iski help se json data js object ki form me convert ho jaayega and hum isko js object ki tarah access kar sakte hai
+        console.log(validresponse);
+        console.log(validresponse.fact);
+
+
+        // next ek iske opposite method hota hai  JSON.stringify(json) iski help se hum js object ke data ko JSON data me convert kar sakte hai ------>
+
+        let student = {name:"AKshay" , Age:20};
+        let jdata = JSON.stringify(student); // iski help se js object ka data JSON data me convert ho jaaeyga
+        console.log(jdata);
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

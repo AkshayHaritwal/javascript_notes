@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom events - click event , mouseenter , addeventlistener , dom events on multiple elements like para</title>
+  </head>
+  <style>
+    .box{
+        height: 300px;
+        width: 300px;
+        background-color: deeppink;
+        border: 2px solid rgb(194, 206, 60);
+    }
+  </style>
+  <body>
+    <!-- <button onclick="console.log('button was clicked by user') ,console.log('click again')"> Click here </button> -->
+    <!-- onclick event ka kaam hota hai jese hii iss button pe click kiya jaaye wese hii "" me jo kaam likha hai wo perform ho jaaye yaha ye console wali statement console me print ho jaayegi , lagakar hum multiple kaam karwa sakte hai    -->
+
+    <button>click here1</button>
+    <button>click here2</button>
+    <button>click here3</button>
+    <button>click here4</button>
+    <button>click here5</button>
+
+
+
+    <p>This is an paragraph</p>
+
+
+    <div class="box"></div>
+
+
+
+
+
+    <script>
+        // onclick event in javascript ----------------------------->
+        // onclick event tab triger hoti hai jab kisi button pe click kiya jata hai 
+
+        let btn = document.querySelector('button');
+        console.dir(btn);
+
+        btn.onclick = function hello() {
+            console.log("button clicked");
+            
+        }  //yaha humne btn.onclick event ki value me ek function assign kar diya hai so jese hii hum click karenge to onclick event ki help se function exicute ho jaayega 
+
+
+        
+
+        let btns = document.querySelectorAll('button');
+        console.dir(btns);
+
+        for (btns of btns){
+            btns.onclick= hellos
+        }
+
+       function hellos() {
+            console.log("button clicked"); 
+        }  // iss tarah se hum multiple buttons ke liye onclick event click fucntion ko apply kar sakte hai  
+
+
+
+        // onmouseenter event in javascript ---------------------------->
+        // onmouseenter event jese hii hum mouse arrow ko button pe leke jaayenge to tab triger ho jaayega 
+       
+        let buttons = document.querySelector('button');
+
+        buttons.onmouseenter = function mouse() {
+            console.log("mouse entered in button field");
+            
+        }
+
+        // for multiple buttons --->
+        let buttonS = document.querySelectorAll('button');
+        console.dir(buttonS);
+
+        for (buttonS of buttonS){
+            buttonS.onmouseenter= mousE
+        }
+
+       function mousE() {
+             console.log("mouse entered in button field");
+        }
+
+
+        // addEventListener in javascript ----------------------------->
+        // button pe click karne pe multiple properties execute ho to uske liye hum addeventlistener ko use karte hai , baaki jese ki onclick wagera me ek baari me ek hii chiz execute hogi 
+
+
+        let Btns = document.querySelectorAll('button');
+
+        for (Btns of Btns){
+            Btns.addEventListener('click',program1); //event listener me 2 argument aate hai 1st event name and second jo execute karwana hai , yaha event hai click and execute karwana chate hai program1 function ko , so jese hi click karenge ye function execute ho jaayega
+            Btns.addEventListener('click',program2);
+        }
+
+       function program1() {
+            console.log("button clicked by event listerner"); 
+        } 
+
+        function program2() {
+           alert("your first program has been executed sucessfully");
+        } 
+
+
+        // addEventListener , onclick , mouseenter etc inko ko hum multiple elements ke liye use kar sakte hai aisa nahi ki kewal button pe hii use honge ---->
+
+        let para = document.querySelector('p');
+
+        para.addEventListener("click",function () {
+            console.log("para was clicked");
+        })
+
+
+        let box = document.querySelector('.box');
+        box.addEventListener("mouseenter",function () {
+            console.log("mouse entered in pink box");
+           
+            
+        });
+
+
+
+
+
+
+    </script>
+  </body>
+</html>

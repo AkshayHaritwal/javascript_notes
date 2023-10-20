@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FORM events</title>
+  </head>
+  <body>
+    <form action="/action">
+      <input
+        type="text"
+        name="name"
+        id="name"
+        placeholder="Enter something here"
+      />
+      <button>register</button>
+    </form>
+
+
+    
+
+    <script>
+        let form = document.querySelector("form");
+        form.addEventListener("submit" , function (event) {  // so form ka ek event argument hota hai submit jese hii hum form submit karenge to callback me jo programme likha hai wo execute ho jaayega
+            alert("form submitted sucessfully"); // jese hii form submit hoga to ye alert aayega and ok karne pe hum action wale url pe chale jaayenge agar hum action wale url pr nahi jaana chate hai to event.preventdefault kar denge
+            
+            event.preventDefault(); 
+        });
+
+
+
+
+
+
+
+    </script>
+  </body>
+</html>

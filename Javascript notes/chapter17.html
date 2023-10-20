@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select in dom - id , class , tag name , querySelector </title>
+</head>
+<body>
+
+    <img src="Spiderman.png" alt="Spiderman" id="spiderimg">
+
+    <img src="Amazing-Fantasy.jpg" alt="" class="old-img">
+    <img src="Amazing-Spidrerman.jpg" alt="" class="old-img">
+    <img src="Man.jpg" alt="" class="old-img">
+
+    
+
+
+    <p>This is an tutorial for selecting element with the help of id , class , tagname </p>
+
+    <p id="para">This is para with id </p>
+
+    <h1>This is heading 1</h1>
+
+    <h2 class="heading2">This is heading number 2</h2>
+
+    <h3 id="heading3">This is heading number 3</h3>
+
+    <div>
+        <a href="www.google.com">Google</a>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <script>
+        // selecting element with the help of id ---------------------------------->
+
+        console.log(document.getElementById("spiderimg")); // iss tarah se hum id ki help se kisi tag ko access kar sakte hai , isko run karenge to is id wala tag hum display hoga console me jo ki ek object hai , isko object ki form me print karwane ke liye ya to hum yaha console.log ki jagah console.dir likh de ya niche wale ki tarah ek variable me store karke karwa sakte hai 
+
+        let image =document.getElementById("spiderimg");
+        console.dir(image); // iss tarah se jese hii hum console .dir karenge to iska object display hoga console me , yaha  image ke baad . lagayenge to uss object ki properties display hogi  unme se hum kuch bhi print karwa sakte hai and = karke usme changes bhi kar sakte hai 
+
+        console.log(image.tagName);// tag ka naam print ho jaayega jo ki hai img 
+
+        console.log(image.src="three.png"); // iss tarah se hum = karke properties ki value ko change kar sakte hai yaha ye three wali image display hogi ab spider ki jagah 
+
+        // note : - wrong id enter karenge to null return hoga 
+
+
+
+
+        // selecting element with the help of class -------------------------------------->
+
+        console.log(document.getElementsByClassName("old-img")); // isko run karenge to hume htmlcollection return hoga jisme old image as a object store hoga , yaha humne 3 img ko oldage class de rakhi hai so inhe hum index ki help se access kar sakte hai 
+
+        console.dir(document.getElementsByClassName("old-img")[2]); // iss tarah se hum particular object ko print karwa sakte hai .
+
+        console.log(document.getElementsByClassName("old-img")[2].src="Spiderman.png"); // iss tarah se hum . lagayenge to iss object ki properties display hogi  unme se hum kuch bhi print karwa sakte hai and = karke usme changes bhi kar sakte hai yaha .src me humne spiderman wali image de di hai 
+
+        let oldimage = (document.getElementsByClassName("old-img"));  // iss tarah se same hum variable me store karwake bhi karwa sakte hai 
+        console.log(oldimage[1].src="Spiderman.png");
+
+        // note :- wrong class enter karne pe empty htmlcollection return hoga 
+
+
+
+
+
+        // selecting element with the help of tagname ----------------------------------------->
+
+
+        console.log(document.getElementsByTagName("p"));  //isko run karenge to hume htmlcollection return hoga jisme sabhi paragraph as a object store hoga , yaha humne 2 paragraph hai so inhe hum index ki help se access kar sakte hai 
+
+        console.dir(document.getElementsByTagName("p")[1]);// iss tarah se hum particular object ko print karwa sakte hai . yaha 1st id wale paragraph ka object print ho jaayega 
+
+        let paragraph = document.getElementsByTagName("p");
+        console.log(paragraph[1].innerText="Akshay choudhary"); // iss tarah se hum .innerText likhenge to iska text print ho jaayega and = karke hum value ko change kar sakte hai 
+
+
+        // query selector in javascript ------------------------------------------->
+        // query selector ki help se hum element ko select kar sakte hai , query selector me hum simply jis tarah css me element ki select karte hai waise hii kar sakte hai 
+
+       console.dir( document.querySelector("h1")); // iss tarah se hum tag name ki help se kisi element ko select kar sakte hai yaha console.dir kiya hai isliye inka object print hoga 
+
+       
+       console.dir( document.querySelector("#heading3")); //iss tarah se hum id ki help se kisi element ko select kar sakte hai yaha console.dir kiya hai isliye inka object print hoga 
+       
+       console.dir( document.querySelector(".old-img")); //iss tarah se hum class ki help se kisi element ko select kar sakte hai yaha console.dir kiya hai isliye inka object print hoga , upper humne 3 images ko old-img class de rakhi hai but yaha kewal jo first image hai jisko ye class de rakhi hai uska object print hoga , agar hume sabhi ko print karwana hai to uske liye document.querySelectorAll ko use karenge
+
+       console.dir(document.querySelectorAll(".old-img")); // all se hume ek node list milegi jisme sabhi .old-img wale element ka html collection hoga inhe hum index ki help se access kar sakte hai 
+
+       console.dir(document.querySelector("div a")); // iss tarah se hum particular unn anchor tag ko select kar sakte hai jo div me hai 
+
+    </script>
+</body>
+</html>

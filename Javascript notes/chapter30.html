@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> callstack in javascript</title>
+</head>
+<body>
+    <h1>Call stack in javascript</h1>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        // callstack in javascript ----------------------------------------------->
+        // jab bhi javascript me function ko call kiya jata hai tab ek callstack banta hai , call ka matlab hai function ko call karna and stack programming me data structure ko kahte hai isme ek ke upper ek iss tarah se data store hota hai , stack last in first out ke concept pe kaam karta hai iska matlab hai agar stack me koi new data add karna hai to wo last me add hoga and agar data bahar nikalna hai to sabse pahle last wala data sabse pahle bahar nikalenge like this continue
+
+    
+        function one() {
+            return 1;
+            
+        };
+
+        function two() {
+            return one() + one();
+            
+        }
+
+        function three() {
+            let ans = two() + one();
+            console.log(ans);
+            
+        }
+
+        three(); 
+        // yaha jse hi humne three function ko call kiya to ye stack me sabse nichee store ho gaya and ab hum is function pe jaayenge isme humne sabse pahle two function ko call kar rakha hai so ab ye function call stack me add ho jaayegi and hum two wale function pe jaayenge yaha hume one function ko call kar rakha hai so one function call stack me add ho jaayegi and hum  one function pe jaayenge yaha humne koi or function call nahi kar rakha hai so ye function execute hoga  and value return kar dega  and ab one function call stack se hatt jaayegi , then yaha humne dubara one func ko call kar rakha hai so wapas one function call stack me add ho jaayegi and hum one function pe jaayenge then execution ab yaha one()+one() ke jagah value store ho jaayegi 1+1 then yaha two function complete ho gaya hai so two function call stack se hatt jaayegi , ab hum wapas three function me aayenge yaha two() ki jagah value store ho jaayegi 2   next humne one() ko call kiya hai so one function call stack me add ho jaayega and hum one() pe jaayenge one()  value return kar dega and ab one function stack se hatt jaayega , hum wapas three() pe aajayenge yaha ab let ans = 2+1 ho jaayega so console me print ho jaayega 3 , ab yaha three() bhi execute ho chuka hai so wo bhi stack se hatt jaayega
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

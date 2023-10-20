@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js as single threaded language</title>
+</head>
+<body>
+
+
+
+
+
+    <script>
+        // javascript ek single threaded language hai iska matlab ye hai ki javascript me ek time pe sirf ek hii programe execute hoga  
+        // javascript ka nature syncronus hota hai iska matlab ye hai ki isme ek ke baad ek sequece me code execute hota hai , but hum different methods jese ki setTimeOut ko use karke javascript ko asyncronous bana sakte hai isme setTimeOut wala code delay ke baad execute hoga jabki uske aage ka code pahle hi execute ho jaayega . but javascript to ek time pe ya to wait hi kar sakti hai ya run kar sakti hai so yaha delay wale code ko browser apne pass store karwa leta hai and jese hi delay complete hoga use javascript ko execute karne ke liye de dega . 
+
+        let a = 10;
+        console.log(a);
+
+        let b = 20;
+        console.log(b)
+
+
+        setTimeout(() => {
+            console.log("hello world");
+        }, 2000);
+
+        setTimeout(() => {
+            console.log("my name is akshay");
+            
+        }, 2000);
+
+
+        console.log("namaste");
+
+
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

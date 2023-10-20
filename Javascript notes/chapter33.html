@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Callback hell</title>
+  </head>
+  <body>
+    <h1>Team india</h1>
+    <h2>Akshay</h2>
+    <h3>Rohit</h3>
+
+    <script>
+     let heading = document.querySelector("h1"); 
+     // ab hum ye chate hai ki 1 sec baad h1 ka color change ho jaaye to red then 1sec baad orange then 1sec baad yellow
+
+      setTimeout(() => {
+        heading.style.color = "red";
+      }, 1000);
+
+      setTimeout(() => {
+        heading.style.color = "orange";
+      }, 2000);
+
+      setTimeout(() => {
+        heading.style.color = "green";
+      }, 3000);
+
+      // to iss tarah se hum setTimeout ka use karke iska color change karwa sakte hai lekin agar bahut saare color change karwane ho to ye sahi tarika nahi hai
+
+
+
+
+
+
+      // so iske liye hum yaha ek function bana sakte , ye function 2 argument leta hai itemcolor and delay , yaha setTimeout lagaya hai so jitna hum delay denge uske baad color change hoga ---->
+
+   let heading2 = document.querySelector("h2");
+      function changecolor(itemcolor, delay) {
+        setTimeout(() => {
+          heading2.style.color = itemcolor;
+        }, delay);
+      }
+      changecolor("red", 1000);
+      changecolor("blue", 2000);
+      changecolor("pink", 3000);
+      // so yaha  pahle red then 1sec baad blue then 1sec badd pink color ho jaayega
+
+
+
+
+
+
+
+
+      // but agar hum ye chate hai ki pahla color change ho uske baad hii dusra color change ho to uske liye callbacks ka use karenge --->
+    let heading3 = document.querySelector("h3");
+// yaha humne function me 3 argument diye hai
+      function changecolors(itemcolor, delay, nextcolor) {
+        setTimeout(() => {
+          heading3.style.color = itemcolor;
+           nextcolor(); // so yaha jese hii pahla color change ho jaayega to hum nextcolor function ko call kar lenge
+        }, delay);
+      }
+
+    //   yaha humne changecolors function ko call kiya hai isme 2 argument ki value de di and 3rd argument ki value me humne ek arrow function de diya , arrow function me humne change color function ko call kiya hai and 2 argument ki value de di 3rd argument ki value me again arrow function like this hume jitne color change karwane hai hum karwa sakte hai 
+      changecolors("red", 1000, () => {
+        changecolors("green", 1000, () => {
+          changecolors("blue", 1000);
+        });
+      });
+
+
+
+
+
+    </script>
+  </body>
+</html>

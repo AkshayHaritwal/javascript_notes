@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To do list</title>
+  </head>
+  <body>
+    <h1>To-do App</h1>
+    <input type="text" name="task" id="task" placeholder="Add task here" />
+    <button>Add task</button>
+    <ul>
+      <li>eat <button class="delete">delete</button></li>
+      <li>sleep <button class="delete">delete</button></li>
+    </ul>
+
+    <script>
+      let btn = document.querySelector("button");
+      let ul = document.querySelector("ul");
+      let inp = document.querySelector("input");
+
+      btn.addEventListener("click", function () {
+        let item = document.createElement("li"); // iss ek li create ho jaayega
+        item.innerText = inp.value; // iski help se user jo bhi input me enter karega wo li me add ho jaayega
+        ul.appendChild(item); // append ki help se ul ke end me ye li append ho jaayega
+
+        let delbtn = document.createElement("button"); // isse delete button create ho jaayega
+        delbtn.innerText = "Delete"; // isse button me ye text add ho jaayega
+        delbtn.classList.add("delete"); // iski help se sabhi button ko delete class mil jaayegi
+        item.appendChild(delbtn); // iski help se delete button sabhi li ke end me add ho jaayega
+
+        inp.value = ""; // iski help se jese hii item add kar denge uske baad input box empty display hoga
+      });
+
+    //   let delbtns = document.querySelectorAll(".delete"); // so yaha sabhi button jiske pass delete class hai unko humne select kar liya hai
+
+    //   for (delbtn of delbtns) {  // yaha for loop ki help se one by one sabhi delete buttons pe ye event listner lag jaayega
+    //     delbtn.addEventListener("click", function () {
+    //       let par = this.parentElement;  // this ki help se jispe bhi click karenge uska parent element pe ye function triger hoga
+    //       console.log(par);
+    //       par.remove(); //  iski help parent element remove ho jaayega
+    //     });
+    //   }
+
+    // agar humne existing element pe koi eventListner laga rakha hai to wo kewal existing element pe add hote hai jo smiliar type ke new element add ho rahe hai create element ke help se unke liye nahi honge. agar hum chate hai ki wo new created element pe bhi apply ho to uske liye hum bubbling ko use karenge ise event delgation kahte hai . iske tahat hum jo addeventlistner child element pe laga rahe thee uss parent element me laga denge 
+
+    ul.addEventListener("click", function (event) {  // yaha humne ul ko select kar liya hai jo li ka parent hai , so yaha humne parent element pe addeventListner laga diya hai iski wajah se ye eventlistner child element pe bhi triger hoga because of event bubbling 
+        console.log("button clicked");
+        
+   // yaha parent yaha child jis bhi element pe click karenge uske liye ye statement likha hua aajyega
+
+    // ab hume ye pata karna hai ki ye particular kispe click karne pe likha hua aaaya hai to uske liye event.target karenge 
+    console.log(event.target.nodeName); //.node name se ye konsa element clik hua hai like ul , li ya button 
+
+    if(event.target.nodeName =="BUTTON"){  // so yaha codename ki value button hogi to niche wala code execute kar jaayega
+        let listItem = event.target.parentElement ;
+        listItem.remove();
+    }
+});
+    </script>
+  </body>
+</html>

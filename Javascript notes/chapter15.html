@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spread - on array , string , array literals , object literals ,array as an object  and Rest , argumnet keyword , distructuring in array , distructuring in object   </title>
+</head>
+<body>
+    <h1>spread and Rest in javascript</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        // spread -- ka use hum iterable(jinpe loop ki help se ek ek value access ki jaa sakti hai like - array , string ,etc) object ki value ko agar hum individually access karna chate hai to kiya jata hai ---------------------------------->
+        
+        let num = [1,2,3,4,5,6,7,8,9];
+
+        console.log(...num); // iss tarah se agar hum ... ke sath array ka naam likhenge to sabhi value individually print ho jaayegi 
+
+
+        // spread on string ------>
+        let str = "AKshay choudhary";
+        console.log(...str);// yaha sabhi character ek ek karke print honge .
+
+        // spread on array literals -------->
+        let arry = [10,20,30,40,50];
+        newarry = [...arry]; // iss tarah se one by one arry ki value newarry me jaayegi 
+        console.log(newarry);
+
+
+        // spread on Object literals --------->
+        let data = {
+            name : "Akshay",
+            age :20,
+
+        };
+        let datacopy = {...data , city:"Jaipur"}; //iss tarah se data object ki sabhi value one by one datacopy me asign ho jaayegi and hum iss tarah , lagakar new property bhi add kar sakte hai 
+        console.log(datacopy);
+
+
+        // arry ko as object store karwana ------------>
+
+        let number = [11,22,33,44,55];
+
+        let obj = {...number}; // iss tarah se hum array ko as object store karwa sakte hai , isme arry ka index key hogi and value property hogi like yaha 0:11 
+        console.log(obj);
+
+
+
+        // Rest in javascript ---------------------------->
+
+        function numbers(...args) {     // yaha humne argument me ... ke sath args likha hai isliye ab hum argument ki value me jitni chahe utni argument value de sakte hai , agar hum alag se koi argumnet dena chaite hai to usko ...args se pahle likh denge 
+           console.log(args); // yaha jitni value hum function ko call karte time denge utni print ho jaayegi 
+
+           for(i = 0 ; i<args.length ; i++){
+                console.log(args[i]); // iss tarah hum loop ke through bhi print karwa sakte hai 
+            };
+
+            
+        }
+        numbers(100,200,300,400,500); // yaha hum multiple value de paa rahe hai because hume rest ko ass argument diya hai 
+
+
+        // argument keyword----->
+
+        function sum() {
+            console.log(arguments); // agar hum iss tarah se console.log me arguments keyword likhenge to function argument me hum multiple values store karwa sakte hai , ye value array ki form me print hogi but hum ispe array methods ko use nahi kar sakte hai uske liye hum rest ko use karna padega 
+            
+        }
+        sum(22,44,66,88,220);
+
+
+
+        // destructing in array ------------------->
+
+        let players = ["Rohit","surya","martin","brandon","Abd","jaiswal"];
+
+        let [winner, runnerup ,...otherplayer]= players; // iss tarah se agar hum let [] me jitne variable ke naam likhnege utni hii players array ki value isme store ho jaayegi , yaha humne 2 variable banaye winner and runnnerup so players array ki 1st and 2nd value isme store ho jaayegi , ... rest method ki help se baaki ki properties otherplayers variable me store ho jaayegi 
+
+        console.log(winner);// yaha winner ko print karwayenge to print hogi 1st value rohit 
+        console.log(runnerup);
+        console.log(otherplayer);
+
+
+
+        // destructing in object -------------------->
+
+        let student = {
+            name:"Aryan",
+            age :13,
+            city:"Jaipur",
+            subject :["English","Maths","Science","hindi"]
+        };
+
+        let {name ,subject}= student;  // ye same destructing in array ki tarah hai difference is isme {} lagate hai and variable name ki jagah key ka naam likhte hai , ab jab console .log name ko to name key ki value print hogi and subject ko karenge to subject key ki value print hogi 
+
+        console.log(name);
+        console.log(subject);
+
+
+
+
+
+    </script>
+</body>
+</html>

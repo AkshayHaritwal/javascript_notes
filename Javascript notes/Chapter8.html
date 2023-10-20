@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loops -
+       for loop---- for loop,  table , nesting in loop,
+      while loop ----- while loop , table , break keyword
+   Array with the help of loop , nested array with the help of loop 
+  for of loop on array , for of loop on nested array </title>
+  </head>
+  <body>
+    <script>
+      // for loop -------------------------->
+
+      for (let a = 0; a <= 10; a++) {
+       // for loop me sabse pahle likhenge for then () isme sabse pahle let a= 0 humne yaha pe variable a ki value define kar di hai 0 ye starting condition hai next humne likha hai a<=10 iska matlab hai jab tak a ki value <=10 ke tab tak a ko print karwa do and har baar a ki value ko update kar a++
+        console.log( a);
+      }
+
+
+
+
+      // user se input lene ke liye ----------------------->
+
+      a = prompt("enter the number for a");
+
+      for (let i = 1; i <= 10; i++) {
+        document.write(a * i, "<br>");
+        // yaha a ki value hogi jo user dega , and i loop mein chalega 10 tak suppose use ne value di 2 too yaha a*i ka matlab hua 2*1 , 2*2 kyuki loop 10 tak chalega so 2 ki table 10 tak chalegi 1 se agar i= 2 likh de too table 2 se suru hogi
+        console.log(a * i);
+      }
+
+      // nesting in loops so isme sabse pahle outer loop ki condition check hogi agar condition true hai to c ki value print hogi and inner loop me jaayenge ab inner loop jab tak condition true rahegi chalega jese condition false ho wapis hum outer loop pe aayenge and c ki value update hogi ab 2 condition check hogi agar true hai to same process repeat   ------------------------>
+
+      for(let c=1; c<=10; c++){
+
+        console.log(c)
+        for(d=1; d<=3; d++){
+          console.log(d);
+        }
+      }
+
+
+
+
+
+      // while loop - ke liye sabse pahle ek variable banaya hai w= value asign kar di hai 1 then while loop ()isme condition di hai ki jab tak w ki value <= rahe 10 se tab tak w ko print karwa do and then update value by +1 , jese hii w ki value 11 hogi conditioon false ho jaayegi and hum loop se bahar aa jaayenge ---------------------------------->
+      let w = 1;
+      while (w<=10) {
+        console.log(w);
+        w++;
+        
+      }
+
+      i = prompt("Enter the number for i");
+      a = 3;
+      while (i <= 10) {
+        document.write(i * a, "<br>");
+        i++;
+      }
+
+
+      // break keyword use in while loop --------------------------------------->
+
+      let x = 1;
+
+      while (x<=10) {
+        if (x==5) {
+          break; // yaha humne if me condition di hai ki jese hii x ki value 5 ho to break kar jaana and 5 bhi print nahi hoga 
+          
+        }
+        console.log(x);
+        x++;
+        
+      }
+
+      // printing arrays with the help of loops---------------->
+
+      let fruits = ["mango" , "apple" , "banana" , "grapes" , "papaya" , "orange"];
+
+      for(let i = 0; i<fruits.length; i++){
+        console.log(i, fruits[i]);
+      }
+      // yaha humne ek variable banaya hai i=0 value assign kar di next ending condition di hai fruits.length yaani loop tab tak chalega jab tak i ki value bruit .length se < rahegi haar baar i ki value update hogi with +1 , console me print karwa hai i isse index print hoga and fruits[i] se jo index print ho raha hai uski value print ho jaayegi 
+
+
+
+    // printing nested array with the help of nested loop --------------------------------->
+
+    let players = [["rohit sharma", "yashvi jaiswal","surya"],["virat", "hardik" ,"shubman"]] //yaha ek nested array banaya hai iski value hum nested loop ki help se access karenge 
+    for(let i =0; i<players.length ; i++){
+      console.log(i,players[i]); // ek variable banaya hai i = starting value de di hai 0 ending value players.length and har baar i updated hoga with +1 , print karwaya hai i isse index print hoga and then players[i]   se jo index print ho raha hai uski value print ho jaayegi 
+
+      for(let n = 0; n<players[i].length; n++){
+        console.log(n,players[i][n]); // yaha ek nested loop banaya hai with variable n = starting value 0 ending value di hai n < players[i].length iska matlab hai jab jab i ki value 0 hogi to 0 index wale nested array ki length ki baat kar rahe hai and 1 hogi to 1 index wale nested array ki length ki baat kar rahe hai ,value update hogi with +1 , console me print karwa denge n isse index print hoga then players[i][n] players[i] pura ek nested array aajayega and [n] se uski ek ek  value print ho jaayegi 
+      }
+    }
+
+
+
+
+
+    // for of loop -- isme hum for me ek variable define karenge yaha variable banaya hai element of friends ki help se jo friends variable hai uske array ki value ek ek karke print ho jaayegi ------------->
+      let friends = ["Akshay", "sunil", "Kushal", "aryan"];
+      for (element of friends) {
+        console.log("hello " + element);
+      
+      }
+
+      // for of loop on nested array --->
+
+      let cars = [["lemorgini" , "bmw"],["audi" , "land roar"]];
+      for(name of cars){
+        console.log(name);
+        for(individual of name){
+          console.log(individual);
+        }
+      }
+
+      // array using loop
+
+      // a = prompt("enter the number");
+      // arr = [a];
+      // for (i = 0; i <= 7; i++) {
+      //   document.write(arr, "<br>");
+      // }
+    </script>
+  </body>
+</html>

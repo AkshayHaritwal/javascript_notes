@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breakpoints</title>
+</head>
+<body>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        // breakpoints ki help se hum browser me callstack kese kaam karta hai usse dekh sakte hai , iske liye hum browser me console ke just right me sources me jaana hai , sources me left me top naam se option hoga isse expend karnge to hume humari file dikh jaayegi chapter31 , isspe click karenge to humare pass complete code aa jayega iss file ka , ab hum isme break point add karenge , so hume jaha break point add karna hai uss line number pr click kar denge , hum multiple breakpoints add kar sakte hai , jaha breakpoint add kiya hai wo breakpoint wale option me show hoga jese usko expend karenge to , and uske nichee call stack me step by step process show hoga , page ko refresh karte hii debugging start ho jaayegi , ab down arrow pe click karke humm step by step execution ko dekh sakte hai , call stack me jo  function call ho raha hai uski function call store hoti jaayegi and jese hii function execute ho jaayegi to stack se function call hatt jaayegi and scope me agar uss function me koi variable hai to uska kya scope hai global ya local wo show hoga 
+        
+        function one() {
+            return 1;
+            
+        };
+
+        function two() {
+            return one() + one();
+            
+        }
+
+        function three() {
+            let ans = two() + one();
+            console.log(ans);
+            
+        }
+
+        three(); 
+
+    </script>
+</body>
+</html>

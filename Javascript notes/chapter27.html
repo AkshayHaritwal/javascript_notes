@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event bubbling</title>
+    <style>
+        div {
+            background-color: pink;
+            height: 200px;
+            width: 400px;
+        }
+        ul{
+            background-color: blue;
+        }
+        li{
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>one</li>
+            <li>two</li>
+            <li>three</li>
+        </ul>
+    </div>
+
+
+    <script>
+        let div = document.querySelector("div");
+        let ul = document.querySelector("ul");
+        let li = document.querySelectorAll("li");
+  // yaha jese hii hum div pe click karenge to div was clicked likha hua aayega  // ul pe click karenge to ul was clicked and div was clicked likha hua aayega kuki agar hum child element pe click karenge to parent element be triger hoga , like this li pe click karenge to li ul and div tno ke click event triger honge  agar hum iss stop karna chate hai to event.stopPropagation method ko use karenge  
+        div.addEventListener("click" ,function () {
+            console.log("div was clicked");
+          
+        }); 
+
+        ul.addEventListener("click" ,function (event) {
+            event.stopPropagation();
+            console.log("ul was clicked");
+            
+        });
+
+        for (li of li){
+            
+        li.addEventListener("click" ,function (event) {
+            event.stopPropagation();
+            console.log("li was clicked");
+            
+        });
+        };
+
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>strings , indexing , slicing and string method , method chaining</title>
+  </head>
+  <body>
+    <h1>This is an tutorial for string and string methods</h1>
+
+    <script>
+      // string :- Text , character , number ,@ ,# agar hum inko double couts("") mei likhte hai to wo string ban jaata hai , string ko hum humesha double couts mei likhte hai, but hum chahe to string single couts mei bhi likh sakte hai but phir single couts ke andar jo value di hai usme hum single couts use nahi kar sakte hai , yaani agar hume andar single couts use karne hai to hum bahar double couts lagayenge and agar hume andar double couts use karne hai to hum bahar single couts lagayenge 
+      // javascript me string immutable hoti hai matlab agar hum string pe koi bhi method perform karenge to wo ek new string return karegi original string me koi changes nahi hoga 
+
+      var Name = "Akshay";
+      var Surname = "Haritwal";
+      var age = 20;
+
+      console.log(Name);
+      // console.log(Name) karenge to name ki value print karega
+      console.log(typeof name);
+
+      console.log(Surname);
+      console.log(typeof Surname);
+
+      console.log(age);
+      console.log(typeof age);
+
+      console.log(Name + Surname);
+      // console.log(Name + Surname) karenge too Name and surname ki value ko add karke print karega
+
+      console.log(name + age);
+      //    to yaha string and number dono add hoke print ho jaayenge
+
+      var how = "How's your day";
+      console.log(how);
+      // iss tarah se agar hume andar single couts use karne hai to hum bahar double couts lagayenge
+
+      var intro = 'my name is "Akshay"';
+      console.log(intro);
+      // iss tarah se agar hume andar double couts use karne hai to hum bahar single couts lagayenge
+
+      console.log("This is a username " + Name + Surname);
+
+      // iss tarah se hum result mei message print karwa sakte hai ,
+
+      console.log("This is a username \n " + Name + Surname);
+
+      // \n karne se jo aage ka content hai wo next line mei aajayega
+
+
+
+
+      // string indexing - javascript mei index 0 se start hota hai and string ki indexing me space ko bhi count kiya jata hai---------->
+
+      var player = "Rohit sharma";
+
+      console.log(player[0]);
+      // iss tarah se hum index ki help se kisi string ke particular character ko print karwa sakte hai , yaha console.log(player[0]) ka matlab hai player variable ki value me jo 0 index pe character hai usse print kar do , 0 pe hai R to ye print ho jaayega
+
+      console.log(player[3]);
+      // yaha i print ho jaayega
+
+      console.log(player.length);
+      // iss tarah se hum jo player variable hai uski value ki length nikal sakte hai length ka matlab hai iske kitne character hai including space , so yaha 12 print ho jaayega
+
+
+
+      // string methods ------->
+
+
+      var name = " Akshay haritwal  ";
+        console.log(name)
+
+        var position = name.indexOf ("ha");
+        // yaha name.indexOf karne se ha ke first letter yani h ka index number bata dega ki ye conse number ka word hai and ye first ha ka batayega first ha akshay mei hai  , yaha counting 0 se start hoti hai ,  agar humne aisa kuch argumnent de diya jo string me nahi hai to ye -1 return karega 
+        console.log(position);
+
+       console.log(name.indexOf("ha")); // hum iss tarah direct be print karwa sakte hai 
+
+
+        var position = name.lastIndexOf ("ha");
+        // last index ka matlab hai last wala ha kitne number pe hai too  last ha haritwal mei hai 
+        console.log(position);
+
+        
+        // iss tarah se hum string ko upper and lower case mei likh sakte hai
+        console.log(name.toUpperCase());
+        
+        console.log(name.toLowerCase());
+        
+        console.log(name.trim())
+        // this remove extra spaces between both left and right corners and will return new string ye original strin me change nahi laayega 
+
+
+        // method chaining - to iss tarah se hum ek variable ke liye multiple methods ko ek line me excute karwa sakte hai , yaha name varibale pe jitne bhii methods hume perform karwane hai unko dot lagaker likhte jaao 
+        let chain = name.trim().toUpperCase() 
+        console.log(chain)
+
+        var replace = name.replace("Akshay", "AK");
+        console.log(replace);
+        // iss tarah se hum kisi string ko replace kar sakte hai , first value wo hai jise replace karwana hai and 2nd wali wo hai jo replace karegi
+
+        console.log(name.charAt(4))
+        // This will print character located at 4th number .
+
+
+
+
+        // slice ki help se hum indexing kar sakte hai like 1 index se lekar 4 index tak ki value print kar do 
+        let city = "Jaipur";
+        console.log(city.slice(1));
+        // yaha humne slice me argument diya hai 1 so isko ye as a starting index lega and end tak ki value print kar dega 
+
+        console.log(city.slice(1,4));
+        // yaha ye 1st index se lekar 3rd index tak ki value print kar dega 4th index count nahi hoga 
+
+        console.log(city.slice(-4));
+        // minus me 4 value dene ka matlab hai ye piche se count karte huye 4 value print kar dega yha "ipur"  print karega 
+
+
+
+        // repeat method - ka  use string ko repeat karwane ke liye kiya jata hai , hum argument me jitna number likhenge wo string utni hii baar repeat ho jaayegi 
+        let country = "India";
+        console.log(country.repeat(5)) //so yaha india 5 time repeat ho yaayega 
+
+    </script>
+  </body>
+</html>

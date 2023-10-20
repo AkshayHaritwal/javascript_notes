@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This keyword</title>
+</head>
+<body>
+    <h1>This keyword in javascript</h1>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+// this keyword ---------------------------------------------->
+
+// yaha humne ek vaiable banaya hai student and iski value ko object me key value pair ke form me store karwa diya hai 
+        const student = {
+            name: "Akshay",
+            age :20,
+            eng:95,
+            history:93,
+            computer:97,
+// yaha humne ek method banaya hai getAvg name se ab agar hume iss method me student object ki property ko access karna hai to uske liye hum this keyword ka use karna padega , yaha this referes to student object 
+           getAvg(){
+            let avg =(this.eng + this.history + this.computer)/3;
+            // let avg =(student.eng + student.history + student.computer)/3; so ye iss tarah se kaam kar raha hai yaha this ka matlab hai student object
+            console.log(avg);
+
+            }
+        }
+
+        student.getAvg();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

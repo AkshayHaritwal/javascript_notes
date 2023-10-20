@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>extracting form data</title>
+</head>
+<body>
+    <form action="/action">
+        <input type="text" name="name" id="name" placeholder="Enter your name">
+        <input type="password" name="password" id="pass" placeholder="enter your password">
+        <button>submit</button>
+    </form>
+    
+
+
+
+
+
+
+
+
+    <script>
+        let form = document.querySelector("form");
+        form.addEventListener("submit" , function (event) {
+            event.preventDefault();
+
+            let username = document.querySelector("#name");
+            console.dir(username);
+            console.log(username.value); // .value ki help se input me jo text enter kiya gaya hai usko access kar sakte hai so yaha pe jo user input enter karega wo inp.value ki help se console me print ho jaayegi
+            
+            let password = document.querySelector("#pass");
+            console.log(password.value); //so yaha password wale input box me jo value enter hogi wo print ho jaayegi
+        })
+    </script>
+</body>
+</html>

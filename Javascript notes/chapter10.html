@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope - global scope , function scope , block scope , lexical scope 
+        function expression ,higher order function , higher order return function , methods , shorthand for methods 
+    </title>
+</head>
+<body>
+    
+
+
+
+    <script>
+        // global scope and function scope ---------------------------->
+
+        let num = 30; // iss variable ka scope global hai yani hum iss kahi bhi access kar sakte hai hum chhe too isko function ke andar bhi use kar sakte hai 
+
+        function Add() {
+            let sum = 30+40; // iss variable ka scope functional hai yaani hum ise iss function ke bahar access nahi kar sakte hai 
+            console.log(sum); 
+            console.log(num); // yaha hum global scope ko use kar paa rahe hai 
+            
+        }
+        Add();
+
+        // console.log(sum); // yaha functional scope ko hum function ke bahar use nahi kar pa rahe hai 
+
+
+
+
+
+        // block scope - {} me agar hum koi let ya const variable define kar de usse hum uss block ke bahar use nahi kar sakte hai   ----------------------------->
+
+        {
+            let age = 20;
+            const name = "Akshay"; 
+
+            console.log(age);
+            console.log(name); 
+            // yaha value print ho jaayegi because hum  isse block ek andar access kr rahe hai 
+
+            
+        }
+
+        // console.log(age);
+        // console.log(name);
+        // yaha error aayega because hum block scope ke variable ko block ke bahar access karne ki kosis kar rahe hai 
+        
+        
+
+        // lexical scope -  ---------------->
+//  yaha humne ek outer function banaya hai and ek inner function banaya hai , ab humne outer function me jo variable define kiye hai a and b unhe hum inner function me use kar sakte hai but inner function me humne jo c variable define kiya hai usse hum outer function me use nahi kar sakte hai 
+        function outer() {
+            let a = 10;
+            let b = 20;
+
+            function inner() {
+                let c = 30;
+                console.log(a+b);
+            }
+            inner(); // inner function ko hum kewal andar hii kal kar sakte hai bahar nahi 
+            
+        }
+        outer();
+
+
+            // function expression- isme hum function ko ek variable me store karwate hai yaha variable hai sum ab variable ka naam hii function ka naam hai   --------->
+
+            let sum = function (a,b) {
+                return a+b;
+                
+            }
+          console.log( sum(200,300)) ; // iss tarah se agar hume function ko call karna hai to usko variable ke naam se hii call karna hoga 
+
+
+        //   higher order function - ye aisa function hai jo kisi dusre function ko as an argument leta hai ------------------------------>
+// yaha humne greetfun naam se function banaya hai and iske 2 argument diye hai func , count , iske baad for loop lagaya hai jo tab tak chalege jitni count ki value hai
+        function greetfun(func , count) {
+            for(i=0; i<=count; i++){
+                func(); // yaha print karwa rahe hai func argument ki value  
+
+            }  
+        }
+        // yaha humne greet variable banaya hai isme ek function ko store karwa diya hai 
+        let greet = function () {
+                console.log("Hello there my name is akshay");
+                
+            }
+
+        greetfun(greet ,4);// yaha main function ko call kiya hai and isme argument ke form greet variable wale function ko de diya hai and count argument ki value di hai 4 
+
+
+
+
+
+    //   higher order return function ----------------------------------->
+
+    let request = prompt("enter your request"); //user se request enter karwa li yaha , request ki value as a argument factory function me jaayegi 
+    let n = prompt("enter the number"); // yaha number enter karwa liya hai hai agar ye n ki value user agar odd enter karta hai to oddNum function me and agar even karta hai too evenNum function me as a argument jaayegi
+   
+  
+    function factory(request) {
+        // agar user request enter karta hai odd to oddNum function return hoga
+        if(request=="odd"){
+        
+            let oddNum = function(n) {
+                console.log( n%2 !=0 );
+                return oddNum;
+
+                
+            }
+            oddNum(n);
+           
+        }
+         // agar user request enter karta hai even to evenNum function return hoga
+        else if (request=="even"){
+            
+            let evenNum = function (n) {
+                console.log( n%2 == 0 );
+                
+            }
+            evenNum(n);
+        }
+
+        else{
+            console.log("wrong request");
+        }
+        
+    }
+    factory(request); // yaha factory function ko call karte time request variable ko as argument value pass kar diya hai 
+
+
+    // methods - functions that are defined inside object are called methods--------------------------------------->
+
+    let calculator = {
+        add:function (a,b) {
+            return a+b;
+            
+        },
+        sub:function (a,b) {
+            return a-b;
+            
+        },
+        mul:function (a,b) {
+            return a*b;
+            
+        }
+    }
+
+    console.log(calculator.add(10,20)); // yaha hum calculator object ke add function ko call kar rahe hai isme a and b argument ki value de di hai 10 and 20 
+    
+
+    // shorthand for methods - ---->
+    let calculator_2 = {
+        add (a,b) {
+            return a+b;
+                            // yaha hume add function banaya hai but hume iss function keyword se define karne ki jarurat nahi hai      
+        },
+        sub (a,b) {
+            return a-b;
+            
+        },
+        mul (a,b) {
+            return a*b;
+            
+        }
+    }
+    console.log(calculator_2.add(10,70)); 
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
